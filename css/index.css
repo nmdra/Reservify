@@ -1,0 +1,126 @@
+/* Import external stylesheets */
+@import url(./reset.css);
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Ubuntu:wght@500&display=swap');
+
+/* Define root variables for colors */
+:root {
+    --foreground: #191919;
+    --background: #f3f3f3;
+}
+
+/* Set smooth scroll behavior for the entire HTML document */
+html {
+    scroll-behavior: smooth;
+    /* Prevent anchor links from scrolling behind a sticky header */
+    scroll-padding-top: 8vh;
+    background-color: var(--background);
+}
+
+/* Header styles */
+/* .header {
+    display: flex;
+    height: 100vh;
+} */
+
+/* Navigation styles */
+#navBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 8vh;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    box-shadow: 0 1px 5px grey;
+    background-color: var(--foreground);
+    transition: background-color 0.4s ease-in-out;
+}
+
+/* Logo styles */
+.site-logo {
+    text-decoration: none;
+    background-color: transparent;
+    font-size: 1.5em;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: normal;
+    border: 2px purple solid;
+    padding: 5px;
+    border-radius: .5rem;
+}
+
+.site-logo a {
+    text-decoration: none;
+    color: var(--background);
+}
+
+.site-logo:hover {
+    color: aqua !important;
+    transition: all 0.5s ease-in;
+    background-color: black;
+}
+
+/* Button styles */
+.btn {
+    display: flex;
+    gap: 20px;
+}
+
+.loginBtn, .signBtn {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.5;
+    border-radius: .25rem;
+    color: var(--background);
+    background-color: #007bff;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn a {
+    text-decoration: none;
+    color: var(--background);
+}
+
+.signBtn:hover, .loginBtn:hover {
+    background-color: #0069d9;
+    transform: scale(1.1);
+}
+
+/* Navigation links styles */
+nav ul a {
+    text-decoration: none;
+    color: #a8a8a8;
+    transition: all 0.3s ease;
+}
+
+nav ul a:hover {
+    color: #fff;
+}
+/* Navigation list styles */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1em;
+}
+
+.main {
+    height: 100vh;
+}
+
+/* Footer styles */
+footer {
+    background-color: pink;
+    height: 100vh;
+}
+
+
