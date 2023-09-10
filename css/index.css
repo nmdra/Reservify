@@ -4,16 +4,16 @@
 
 /* Define root variables for colors */
 :root {
-    --foreground: #191919;
-    --background: #f3f3f3;
+    --black: #191919;
+    --white: #f3f3f3;
 }
 
 /* Set smooth scroll behavior for the entire HTML document */
 html {
     scroll-behavior: smooth;
     /* Prevent anchor links from scrolling behind a sticky header */
-    scroll-padding-top: 8vh;
-    background-color: var(--background);
+    scroll-padding-top: auto;
+    background-color: var(--white);
 }
 
 /* Header styles */
@@ -23,16 +23,17 @@ html {
 } */
 
 /* Navigation styles */
-#navBar {
+.navBar {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    height: 8vh;
+    height: auto;
+    padding: 10px;
     position: fixed;
     width: 100%;
     top: 0;
     box-shadow: 0 1px 5px grey;
-    background-color: var(--foreground);
+    background-color: var(--black);
     transition: background-color 0.4s ease-in-out;
 }
 
@@ -50,13 +51,12 @@ html {
 
 .site-logo a {
     text-decoration: none;
-    color: var(--background);
+    color: var(--white);
 }
 
-.site-logo:hover {
+.site-logo a:hover {
     color: aqua !important;
     transition: all 0.5s ease-in;
-    background-color: black;
 }
 
 /* Button styles */
@@ -76,14 +76,14 @@ html {
     font-weight: bold;
     line-height: 1.5;
     border-radius: .25rem;
-    color: var(--background);
+    color: var(--white);
     background-color: #007bff;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .btn a {
     text-decoration: none;
-    color: var(--background);
+    color: var(--white);
 }
 
 .signBtn:hover, .loginBtn:hover {
@@ -119,8 +119,168 @@ nav ul {
 
 /* Footer styles */
 footer {
-    background-color: pink;
-    height: 100vh;
+    background-color: var(--black);
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
 }
+
+footer .main-con {
+    height: 90%;
+    display: flex;
+    padding: 20px 0px;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+/* Bullet point styles for list items */
+.main-con li::before {
+    content: '\2022  ';
+    font-size: 1.2em;
+    color: aqua;
+}
+
+/* Column one styles */
+.col-one {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 25%;
+}
+
+footer .main-con .col-one h1{
+    font-size: 2em;
+    font-family: 'Ubuntu', sans-serif;
+    color: var(--white);
+    font-weight: normal;
+    padding-bottom: 10px;
+}
+
+/* Column two styles */
+.col-two {
+    height: auto;
+    width: 25%;
+}
+
+footer .main-con .col-two h2{
+    font-size: 1.5em;
+    font-family: 'Roboto', sans-serif;
+    color: var(--white);
+    font-weight: normal;
+    padding-bottom: 10px;
+}
+
+footer .main-con .col-two ul {
+    padding: 10px;
+}
+
+/* Horizontal line styles */
+.main-con hr {
+    height: 1px;
+    color: gray;
+    width: 60%;
+}
+
+footer .main-con .col-two li {
+
+    color: #a8a8a8;
+    padding-bottom: 5px;
+    font-size: .9em;
+    font-family: 'Roboto', sans-serif;
+}
+
+footer .main-con .col-two li:hover {
+    color: var(--white);
+}
+
+/* Column three styles */
+.col-three {
+    height: auto;
+    width: 25%;
+}
+
+footer .main-con .col-three h2 {
+    font-size: 1.5em;
+    font-family: 'Roboto', sans-serif;
+    color: var(--white);
+    font-weight: normal;
+    padding-bottom: 10px;
+}
+
+footer .main-con .col-three ul {
+    color: var(--white);
+    padding: 10px;
+}
+
+footer .main-con .col-three li {
+    color: #a8a8a8;
+    padding-bottom: 5px;
+    font-size: .9em;
+    font-family: 'Roboto', sans-serif;
+}
+/* Social media and policies styles */
+.social {
+    height: auto;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+footer .main-con .social h2 {
+    font-size: 1.5em;
+    font-family: 'Roboto', sans-serif;
+    color: var(--white);
+    font-weight: normal;
+    padding-bottom: 10px;
+}
+
+footer .main-con .social h3 {
+    font-size: .9em;
+    font-family: 'Roboto', sans-serif;
+    color: #a8a8a8;
+    font-weight: normal;
+    padding-top: 20px;
+}
+
+/* Copyright text styles */
+footer .copy {
+    font-size: .8em;
+    text-align: center;
+    color: gray;
+    padding-top: 3px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@media (max-width: 768px) {
+    .navBar {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    footer {
+        display: flex;
+        height: auto;
+    }
+
+    footer .main-con {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 20px;
+    }
+
+    /* Adjust column styles for smaller screens */
+    footer .col-one, .col-three, .col-two, .social {
+        width: 100%;
+    }
+}
+
 
 
