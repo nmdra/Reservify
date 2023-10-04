@@ -1,6 +1,14 @@
 <?php
 // Start the session
+session_start();
 
+if (isset($_SESSION['username'])) {
+    echo " 
+        <script>
+        alert('Before Login. You must logout. Are you Want to logout');
+        window.location.href='./logout.php';
+        </script>";
+}
 // Include the database connection script
 require_once './conn.php';
 
@@ -17,6 +25,10 @@ if (isset($_POST['username']) and isset($_POST['password'])) {
 
     // If the posted values match database values, create a session for the user and redirect to the user dashboard
     if ($count > 0) {
+
+        $_SESSION['username'] = "name";
+        $_SESSION['name'] = $count['name'];
+        echo $_SESSION['username'];
         echo " 
         <script>
         alert('$username Login Successfully.');
@@ -32,3 +44,5 @@ if (isset($_POST['username']) and isset($_POST['password'])) {
     }
 }
 ?>
+
+// TODO: Role base system
