@@ -17,7 +17,7 @@
     <!-- Login Form -->
     <div class="login-form-wrap">
         <h1>Login</h1>
-        <form class="login-form">
+        <form class="login-form" method="POST" action="./logincheck.php" name="loginform">
             <!-- Username input with validation -->
             <input type="text" id="username" name="username" placeholder="Username" required>
             <i class="validation"><span></span><span></span></i>

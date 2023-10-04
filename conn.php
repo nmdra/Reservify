@@ -6,11 +6,12 @@ $password = "";
 $dbName = "reservify";
 
 // Create connection
-$conn = new mysqli($serverName, $userName, $password, $dbName);
+$conn = mysqli_connect($serverName, $userName, $password, $dbName);
 
 //check connection
-if ($conn->connect_error) {
-    die("Connection error: " . $conn->connect_error);
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
 }
+echo "Connected successfully";
 
 ?>
