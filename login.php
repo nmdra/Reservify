@@ -13,7 +13,6 @@
 
  <body>
 
-
      <div class="outline">
          <!-- Login Form -->
          <div class="login-form-wrap">
@@ -22,15 +21,6 @@
                  <!-- Username input with validation -->
                  <input type="text" id="username" name="username" placeholder="Username" required>
                  <i class="validation"><span></span><span></span></i>
-
-<div class="outline">
-    <!-- Login Form -->
-    <div class="login-form-wrap">
-        <h1>Login</h1>
-        <form class="login-form" method="POST" action="./logincheck.php" name="loginform">
-            <!-- Username input with validation -->
-            <input type="text" id="username" name="username" placeholder="Username" required>
-            <i class="validation"><span></span><span></span></i>
 
                  <!-- Password input with validation -->
                  <input type="password" id="pass" name="password" placeholder="Password" required>
