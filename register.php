@@ -13,6 +13,7 @@
 
 <div class="outline">
 
+<form action="registercon.php" method="POST" name="rForm" enctype="multipart/form-data"
   <div class="container">
 
     <h1>Sign Up</h1>
@@ -36,7 +37,8 @@
 
     <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
-    <input type="submit" id="register" value="Sign Up">
+    <input type="submit" id="register" name="submit" value="Sign Up">
+
     <div class="login-wrap">
       <p>Are you member? <a href="./login.php">Login</a></p>
     </div>
