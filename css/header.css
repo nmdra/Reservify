@@ -60,7 +60,9 @@
 }
 
 .loginBtn,
-.signBtn {
+.signBtn,
+.username,
+.logoutbtn {
     display: inline-block;
     font-weight: 400;
     color: #212529;
@@ -76,13 +78,20 @@
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+.username {
+    background-color: grey !important;
+    font-size: 1.1rem;
+
+}
+
 .btn a {
     text-decoration: none;
     color: var(--white);
 }
 
 .signBtn:hover,
-.loginBtn:hover {
+.loginBtn:hover,
+.logoutbtn:hover {
     background-color: #0069d9;
     transform: scale(1.1);
 }
