@@ -6,6 +6,7 @@
 :root {
     --black: #191919;
     --white: #f3f3f3;
+    --bg-color: #3D0072;
 }
 /* 
 /* Set smooth scroll behavior for the entire HTML document */
@@ -26,7 +27,7 @@
     position: sticky;
     top: 0;
     box-shadow: 0 1px 5px grey;
-    background-color: var(--black);
+    background-color: var(--bg-color);
     /* transition: background-color 0.4s ease-in-out; */
 }
 
@@ -37,14 +38,14 @@
     font-size: 1.5em;
     font-family: 'Ubuntu', sans-serif;
     font-weight: normal;
-    border: 2px purple solid;
+    border: 2px rgb(243, 0, 117) solid;
     padding: 5px;
     border-radius: .5rem;
 }
 
 .site-logo a {
     text-decoration: none;
-    color: var(--white);
+    color: #fff;
 }
 
 .site-logo a:hover {
