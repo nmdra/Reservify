@@ -9,6 +9,7 @@ if (isset($_SESSION['username'])) {
         window.location.href='./logout.php';
         </script>";
 }
+
 // Include the database connection script
 require_once './conn.php';
 
