@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,4 +23,6 @@
 <?php include "./partials/footer.php" ?>
 
 </html>
+
+
 
