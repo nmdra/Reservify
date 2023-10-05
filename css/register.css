@@ -69,16 +69,19 @@ input[type="password"] {
     background-color: #0069d9;
 }
 
-/* Styling for the login form */
-.login-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    height: 40vh;
-}
-
 .login-wrap {
     font-family: 'Roboto', sans-serif;
+}
+
+.message{
+   margin:10px 0;
+   width: 100%;
+   border: 1px solid red;
+   border-radius: 5px;
+   padding:10px;
+   text-align: center;
+   background-color: rgb(248, 139, 139);
+   color: #fff;
+   font-size: 15px;
+   font-family: 'Roboto', sans-serif;
 }
