@@ -1,13 +1,5 @@
 <?php
-
-    if (!isset($_SESSION['username'])) {
-        echo " 
-        <script>
-        alert('You Must Login to access this page');
-        window.location.href='./login.php';
-        </script>";
-    }
-
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +13,17 @@
 </head>
 
 <?php include "./partials/header.php" ?>
+<?php
 
+    if (!isset($_SESSION['username'])) {
+        echo " 
+        <script>
+        alert('You Must Login to access this page');
+        window.location.href='./login.php';
+        </script>";
+    }
+
+?>
 <body>
 
     <div class="main">
@@ -33,3 +35,4 @@
 <?php include "./partials/footer.php" ?>
 
 </html>
+

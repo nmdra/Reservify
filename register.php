@@ -1,3 +1,43 @@
+<?php
+session_start();
+?>
+
+<?php
+// Include the database connection script
+require_once './conn.php';
+
+// Check if the form is submitted
+if (isset($_POST['submit'])) {
+    // Retrieve values from the form
+    $name = $_POST['name'];
+    $uName = $_POST['uname'];
+    $email = $_POST['email'];
+    $password = $_POST['psw'];
+    $rPassword = $_POST['psw-repeat'];
+       // Check if the username or email already exists in the database
+    $select = mysqli_query($conn, "SELECT * FROM `user` WHERE email = '$email' OR uName = '$uName'") or die('Query failed');
+
+    if (mysqli_num_rows($select) > 0) {
+        // If either the email or username already exists, display an error message
+        $message[] = 'Username or email already exists';
+    } elseif($password != $rPassword) {
+        $message[] = 'Password Mismatch!';
+    } else {
+        // If neither the email nor username exists, you can proceed with registration
+        // Insert user data into the database
+        $insert = mysqli_query($conn, "INSERT INTO `user` (`name`, `uName`, `email`, `password`) VALUES ('$name', '$uName', '$email', '$password')");
+
+        if ($insert) {
+            // Registration successful
+            $message[] = 'Registration successful. Click here to <a href="./login.php">Log in.</a>';
+        } else {
+            // Registration failed
+            $message[] = 'Registration failed. Please try again.';
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,13 +53,19 @@
 
 <div class="outline">
 
-<form action="registercon.php" method="POST" name="rForm" enctype="multipart/form-data"
+<form action="register.php" method="POST" name="rForm" enctype="multipart/form-data"
   <div class="container">
 
     <h1>Sign Up</h1>
-    <p>Please fill in this form to create an account.</p>
+    <?php
+      if(isset($message)){
+         foreach($message as $message){
+            echo '<div class="message">'.$message.'</div>';
+         }
+      }
+    ?>
     <hr>
-
+      
     <label for="name"><b>Name</b></label>
     <input type="text" placeholder="Enter Name" name="name" required>
 
@@ -52,3 +98,4 @@
 <?php include "./partials/footer.php" ?>
 
 </html>
+
