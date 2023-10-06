@@ -68,7 +68,7 @@ if (isset($_POST['submit'])) {
     }
     ?>
     <hr>
-
+      
     <label for="name"><b>Name</b></label>
     <input type="text" placeholder="Enter Name" name="name" required>
 
@@ -101,3 +101,4 @@ if (isset($_POST['submit'])) {
 <?php include "./partials/footer.php" ?>
 
 </html>
+
