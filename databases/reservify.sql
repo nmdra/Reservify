@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 04, 2023 at 09:59 AM
+-- Generation Time: Oct 06, 2023 at 10:04 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -28,33 +28,23 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `user` (
-  `name` varchar(30) NOT NULL,
-  `uName` varchar(15) NOT NULL,
-  `email` varchar(40) NOT NULL,
-  `password` varchar(30) NOT NULL,
-  `userid` int(11) NOT NULL
+  `uid` int(11) NOT NULL,
+  `uName` varchar(30) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `role` varchar(10) NOT NULL DEFAULT 'User'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`name`, `uName`, `email`, `password`, `userid`) VALUES
-('Thakshila', 'thakshi@1', 'thakshila@gmail.com', 'thakshi@1', 1),
-('', '', '', '', 2),
-('nimendr', 'nmdra', 'nimendra@gmail.com', '1234', 3),
-('lslsls', 'aaks', 'ksskks', '1234', 4),
-('lslsls', 'aaks', 'ksskks', '1234', 5),
-('gayashan', 'sayuri', 'ksksk', '1234', 6),
-('ga8@yashan', 'sayu@3ri', 'ksksk', '8686', 7),
-('ga8@yashan', 'sayu@3ri', 'ksksk@gmail', '8686', 8),
-('ga8@yashan', 'sayu@3ri', 'ksksk@gmail', '344', 9),
-('ga8@yashan', 'sayu@3ri', 'ksksk@gmail', '344', 10),
-('ga8@yashan', 'sayu@3ri', 'ksksk@gmail', '344', 11),
-('kdjk', 'sjdldj', 'dlsjkdjl', '1234', 12),
-('dklskl', 'skdl', 'ksdjks', '4898', 13),
-('dilshan', 'dil', 'dilshan@gmail.com', '1234dk', 14),
-('aweesha', 'awee', 'awee@gmail.com', 'awee1', 15);
+INSERT INTO `user` (`uid`, `uName`, `name`, `email`, `password`, `role`) VALUES
+(1, 'admin', 'jay', 'jay@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'Admin'),
+(3, 'gay', 'gayshan', 'gay@gay', '0ec09ef9836da03f1add21e3ef607627e687e790', 'User'),
+(4, 'test', 'test', 'test', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'User'),
+(6, 'ksk', 'kskk kskkskk', 'skk', '356a192b7913b04c54574d18c28d46e6395428ab', 'User');
 
 --
 -- Indexes for dumped tables
@@ -64,7 +54,7 @@ INSERT INTO `user` (`name`, `uName`, `email`, `password`, `userid`) VALUES
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`userid`);
+  ADD PRIMARY KEY (`uid`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -74,7 +64,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -15,7 +15,8 @@ if (isset($_SESSION['username'])) {
         // Assign posted values to variables
 
         $username = $_POST['username'];
-        $password = $_POST['password'];
+        $pass = $_POST['password'];
+        $password = sha1($pass);
 
         // Check if the values exist in the database
         $query = "SELECT * FROM `user` WHERE uName='$username' and password='$password'";
@@ -24,14 +25,27 @@ if (isset($_SESSION['username'])) {
 
         // If the posted values match database values, create a session for the user and redirect to the user dashboard
         if ($count > 0) {
-            $_SESSION['username'] = "name";
+            if ($count['role'] == 'User') {
+                //saving user data into session variables
+            $_SESSION['username'] = $count['uName'];
             $_SESSION['name'] = $count['name'];
-
-            $message[] = $username . "Login Succesful";
-            header("Location: userDashboard.php");
+                $message[] = $username . "Login Succesful";
+                header('location: userDashboard.php');
+            } else if ($count['role'] == 'Admin') {
+                //saving Admin data into session variables 
+            $_SESSION['username'] = $count['uName'];
+            $_SESSION['name'] = $count['name'];
+ 
+                header('location: adminDashboard.php');
+            } else if ($count['role'] == 'Owner') {
+                //saving Admin data into session variables
+            $_SESSION['username'] = $count['uName'];
+            $_SESSION['name'] = $count['name'];
+ 
+                header('location: ownerDashboard.php');
+            } 
         } else {
             // If login credentials don't match, show an error message and redirect to the login page
-
             $message[] = 'Invalid Login Credentials';
         }
     }
