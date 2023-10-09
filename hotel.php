@@ -52,5 +52,4 @@ session_start()
 </body>
 
 <?php include "./partials/footer.php" ?>
-
 </html>

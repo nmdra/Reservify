@@ -129,6 +129,12 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `Hotel`
+--
+ALTER TABLE `Hotel`
+  MODIFY `hid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
