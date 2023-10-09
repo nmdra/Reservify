@@ -17,38 +17,37 @@ session_start()
 
 <body>
 
+    <div class="title">
+        <h1>HOTELS</h1>
+    </div>
 
-<div class="title">
-    <h1>HOTELS</h1>
-</div>
+    <div class="cardContainer">
 
-<div class="cardContainer">
-    
 
-    <?php
+        <?php
 
-    require_once './conn.php';
-    // Check if the values exist in the database
-    $query = "SELECT * FROM `Hotel`";
-    $result = mysqli_query($conn, $query);
-    // $row = mysqli_fetch_array($result);
+        require_once './conn.php';
+        // Check if the values exist in the database
+        $query = "SELECT * FROM `Hotel`";
+        $result = mysqli_query($conn, $query);
+        // $row = mysqli_fetch_array($result);
 
-    if ($result) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            $id = $row['hid'];
-            $name = $row['hName'];
-            $imgname = $row['imgname'];
+        if ($result) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $id = $row['hid'];
+                $name = $row['hName'];
+                $imgname = $row['imgname'];
 
-        echo '<div class="card">';
-        echo '<img src="./assets/image/' . $imgname .'" alt=hotel>';
-        echo '<h1>' . $name . '</h1>';
-        echo '<button onclick="location.href=\'./booking.php?hotel=' . $id . '\'" type="button">Book Now</button>';
-        echo '</div>';
+                echo '<div class="card">';
+                echo '<img src="./assets/hotel/' . $imgname . '" alt=hotel>';
+                echo '<h1>' . $name . '</h1>';
+                echo '<button onclick="location.href=\'./booking.php?hotel=' . $id . '\'" type="button">Book Now</button>';
+                echo '</div>';
+            }
         }
-    }
 
-?>
-</div>
+        ?>
+    </div>
 
 </body>
 
