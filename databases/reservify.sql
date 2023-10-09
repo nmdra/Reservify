@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 07, 2023 at 11:41 PM
+-- Generation Time: Oct 09, 2023 at 08:46 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `Hotel` (
-  `hid` int(11) NOT NULL,
+  `hid` varchar(8) NOT NULL,
   `hName` varchar(40) NOT NULL DEFAULT 'hotel',
   `hDescription` text NOT NULL,
-  `imgname` varchar(100) DEFAULT NULL
+  `imgname` varchar(100) DEFAULT 'null.jpeg'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
@@ -39,10 +39,43 @@ CREATE TABLE `Hotel` (
 --
 
 INSERT INTO `Hotel` (`hid`, `hName`, `hDescription`, `imgname`) VALUES
-(1, 'Amora Resort', 'Experience unparalleled luxury and tranquility at Amora Resort. Nestled on the picturesque shores of Negombo, our resort offers a perfect blend of modern comfort and natural beauty. Whether you\'re looking for a relaxing beachfront getaway or an adventurous water sports experience, Amora Resort has it all. Our well-appointed rooms, delectable dining options, and attentive service ensure a memorable stay. Discover the true essence of tropical paradise at Amora Resort', 'img1.webp'),
-(2, 'Oceanview Paradise', 'Escape to Oceanview Paradise, where your dream vacation awaits. Situated along the pristine coastline of Galle, Sri Lanka, our hotel offers breathtaking views of the Indian Ocean and an oasis of serenity.Our luxurious rooms and suites are designed to provide the utmost comfort and style. Whether you\'re lounging by the infinity pool, indulging in culinary delights at our oceanfront restaurant, or enjoying a spa treatment with the sound of waves in the background, Oceanview Paradise promises an unforgettable experience.For the adventurous traveler, explore nearby historic sites, embark on a whale-watching excursion, or simply stroll along the golden sands of our private beach.At Oceanview Paradise, every moment is a journey of relaxation and discovery. Come, unwind, and create lasting memories in this coastal haven.', 'img3.jpg'),
-(3, 'Araliya Beach Resort', 'skjdljsljdlsj:', 'img4.avif'),
-(4, 'Araliya mount Resort', 'skjdljsljdlsj:', 'img2.jpg');
+('H0000001', 'Amora Resort', 'Experience unparalleled luxury and tranquility at Amora Resort. Nestled on the picturesque shores of Negombo, our resort offers a perfect blend of modern comfort and natural beauty. Whether you\'re looking for a relaxing beachfront getaway or an adventurous water sports experience, Amora Resort has it all. Our well-appointed rooms, delectable dining options, and attentive service ensure a memorable stay. Discover the true essence of tropical paradise at Amora Resort', 'img1.jpg'),
+('H0000002', 'Oceanview Paradise', 'Escape to Oceanview Paradise, where your dream vacation awaits. Situated along the pristine coastline of Galle, Sri Lanka, our hotel offers breathtaking views of the Indian Ocean and an oasis of serenity.Our luxurious rooms and suites are designed to provide the utmost comfort and style. Whether you\'re lounging by the infinity pool, indulging in culinary delights at our oceanfront restaurant, or enjoying a spa treatment with the sound of waves in the background, Oceanview Paradise promises an unforgettable experience.For the adventurous traveler, explore nearby historic sites, embark on a whale-watching excursion, or simply stroll along the golden sands of our private beach.At Oceanview Paradise, every moment is a journey of relaxation and discovery. Come, unwind, and create lasting memories in this coastal haven.', 'img3.jpg'),
+('H0000003', 'Sunset Oasis Resort', 'Sunset Oasis Resort is a luxurious beachfront escape nestled along the pristine shores of a secluded tropical island. With its palm-fringed white sand beaches and crystal-clear turquoise waters, this resort offers the perfect setting for a romantic getaway or a family vacation. Guests can indulge in spa treatments, savor gourmet cuisine, and enjoy water sports while basking in the breathtaking sunset views.', 'img4.avif'),
+('H0000004', 'Mountain View Resort', 'Tucked away in the heart of the picturesque alpine wilderness, Mountain View Lodge is a charming retreat for nature enthusiasts. Surrounded by towering pine trees and majestic mountain peaks, this cozy lodge provides comfortable accommodations, hiking trails, and access to outdoor adventures year-round. Whether you\'re seeking tranquility or outdoor excitement, Mountain View Lodge has it all.', 'img2.jpg'),
+('H0000005', 'Serenity Springs', 'Serenity Springs Retreat is a secluded eco-friendly haven nestled in a lush forest. Designed for those seeking a digital detox and a reconnection with nature, this retreat offers cozy cabins with private hot tubs, guided meditation sessions, and hiking trails. Guests can unwind in a serene environment, listen to the sounds of the forest, and rejuvenate their mind, body, and soul.', 'img5.jpeg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `packages`
+--
+
+CREATE TABLE `packages` (
+  `hid` varchar(8) NOT NULL,
+  `pkgname` varchar(20) DEFAULT NULL,
+  `pkgprice` decimal(10,2) DEFAULT 0.00,
+  `pkgid` varchar(8) NOT NULL,
+  `pkgimg` varchar(30) NOT NULL DEFAULT 'null.jpeg'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `packages`
+--
+
+INSERT INTO `packages` (`hid`, `pkgname`, `pkgprice`, `pkgid`, `pkgimg`) VALUES
+('H0000001', 'Delux Package', 250.00, 'PKG00001', 'null.jpeg'),
+('H0000002', 'Deluxe', 250.00, 'PKG00002', 'null.jpeg'),
+('H0000002', 'Premium', 150.00, 'PKG00003', 'null.jpeg'),
+('H0000002', 'Deluxe', 100.00, 'PKG00004', 'null.jpeg'),
+('H0000002', 'Premium', 200.00, 'PKG00005', 'null.jpeg'),
+('H0000003', 'Deluxe', 200.00, 'PKG00002', 'null.jpeg'),
+('H0000003', 'Premium', 200.00, 'PKG00003', 'null.jpeg'),
+('H0000003', 'Deluxe', 200.00, 'PKG00004', 'null.jpeg'),
+('H0000004', 'Deluxe', 200.00, 'PKG00002', 'null.jpeg'),
+('H0000004', 'Premium', 200.00, 'PKG00005', 'null.jpeg'),
+('H0000005', 'Premium', 200.00, 'PKG00003', 'null.jpeg'),
+('H0000005', 'Deluxe', 200.00, 'PKG00004', 'null.jpeg');
 
 -- --------------------------------------------------------
 
@@ -80,6 +113,12 @@ ALTER TABLE `Hotel`
   ADD PRIMARY KEY (`hid`);
 
 --
+-- Indexes for table `packages`
+--
+ALTER TABLE `packages`
+  ADD PRIMARY KEY (`hid`,`pkgid`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -88,12 +127,6 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `Hotel`
---
-ALTER TABLE `Hotel`
-  MODIFY `hid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user`
