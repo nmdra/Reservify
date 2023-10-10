@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Ubuntu:wght@500&display=swap');
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+
 .cardContainer {
     display: flex;
     flex-wrap: wrap;
@@ -17,6 +26,39 @@
 
 }
 
+/* Add these CSS styles to your hotel.css file */
+.search-container {
+    margin-top: 20px;
+}
+
+#hotelSearch {
+    padding: 10px;
+    width: 60%;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#hotelSearch:focus {
+    outline: none;
+    border-color: purple;
+}
+
+.search-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background-color: #0056b3;
+}
+
+
 .card {
     display: flex;
     flex-direction: column;
@@ -32,6 +74,7 @@
     border: 2px solid purple;
     border-radius: 1.2rem;
     background-color: aliceblue;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .card img {
@@ -53,7 +96,7 @@
 
 .card button {
     cursor: pointer;
-    width: 75%;
+    width: 60%;
     display: inline-block;
     font-weight: 400;
     text-align: center;

@@ -30,7 +30,6 @@ session_start();
         </div>
     </div>
 
-
     <div class="Partnership">
         <div class="circle">
             <div class="name">

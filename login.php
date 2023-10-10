@@ -29,6 +29,7 @@ if (isset($_SESSION['username'])) {
             if ($count > 0) {
                 $_SESSION['username'] = $count['username'];
                 $_SESSION['name'] = $count['name'];
+                $_SESSION['user_id'] = $count['user_id'];
                 $message[] = $username . "Login Succesful";
                 header('location: userDashboard.php');
             } else {

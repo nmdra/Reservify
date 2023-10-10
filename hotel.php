@@ -16,9 +16,15 @@ session_start()
 <?php include "./partials/header.php" ?>
 
 <body>
-
+    <div class="main">
     <div class="title">
         <h1>HOTELS</h1>
+    </div>
+
+    <!-- Add a search bar and button -->
+    <div class="search-container">
+        <input type="text" id="hotelSearch" placeholder="Search for hotels...">
+        <button onclick="searchHotels()">Search</button>
     </div>
 
     <div class="cardContainer">
@@ -48,8 +54,10 @@ session_start()
 
         ?>
     </div>
+    </div>
 
 </body>
 
+    <script src="./js/search.js"></script>
 <?php include "./partials/footer.php" ?>
 </html>

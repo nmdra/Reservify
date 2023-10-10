@@ -24,6 +24,7 @@ footer {
     height: auto;
     display: flex;
     flex-direction: column;
+    z-index: 99;
 }
 
  footer .main-con {
@@ -132,6 +133,16 @@ footer .social {
 
 .social .svg-con svg {
     color: #fff;
+}
+
+footer a,
+footer a:visited {
+    color: #a8a8a8;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--white);
 }
 
 /* Copyright text styles */

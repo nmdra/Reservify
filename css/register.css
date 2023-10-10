@@ -13,10 +13,12 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    min-width: 30%;
     width: auto;
     gap: 5px;
     border: 3px solid purple;
     padding: 30px;
+    padding-left: 50px;
     border-radius: 1.2rem;
     background-color: aliceblue;
 }
@@ -74,7 +76,20 @@ input[type="password"] {
     padding-bottom: 10px;
 }
 
-.message{
+.message {
+   margin:10px 0;
+   width: 100%;
+   border: 1px solid red;
+   border-radius: 5px;
+   padding:10px;
+   text-align: center;
+   background-color: rgb(248, 139, 139);
+   color: #fff;
+   font-size: 15px;
+   font-family: 'Roboto', sans-serif;
+}
+
+#message {
    margin:10px 0;
    width: 100%;
    border: 1px solid red;

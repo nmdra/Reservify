@@ -14,17 +14,18 @@
             <h2>Links</h2>
             <hr>
             <ul>
-                <li>Hotels</li>
-                <li>About Us</li>
-                <li>Contact Us</li>
-                <li>Customer Care</li>
+
+                <li><a href="index.php">Home</a></li>
+                <li><a href="hotel.php">Hotels</a></li>
+                <li><a href="about.php">About Us</a></li>
+                <li><a href="contact.php">Contact Us</a></li>
             </ul>
         </div>
         <div class="col-three">
             <h2>Contact Details</h2>
             <hr>
             <ul>
-                <li>+94XXXXXXXXX</li>
+                <li>+941125025011</li>
                 <li>info@reservify.com</li>
                 <li>Address: Unawatuna, Galle, Sri Lanka</li>
             </ul>
@@ -46,8 +47,8 @@
                 </svg>
                 <!-- Include your SVG icons or links here -->
             </div>
-            <h3>Privacy Policy</h3>
-            <h3>Terms & Conditions</h3>
+            <h3><a href="privacy.php">Privacy Policy</a></h3>
+            <h3><a href="terms.php">Terms & Conditions</a></h3>
         </div>
     </div>
     <hr>

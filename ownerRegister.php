@@ -86,7 +86,7 @@ if (isset($_POST['submit'])) {
     <label for="psw-repeat"><b>Repeat Password</b></label>
     <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
 
-    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+    <p>By creating an account you agree to our <a href="./terms.php" style="color:dodgerblue">Terms.</a>.</p>
 
     <input type="submit" id="register" name="submit" value="Sign Up">
 

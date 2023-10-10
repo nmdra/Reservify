@@ -29,14 +29,13 @@ if (isset($_GET['pkg'])) {
     $price = $row['price'];
 
     echo $pkg;
+} else {
+    echo
+    "<script>
+        alert('Hotel Not Available');
+        window.location.href='./book.php';
+        </script>";
 }
-// } else {
-//     echo
-//     "<script>
-//         alert('Hotel Not Available');
-//         window.location.href='./book.php';
-//         </script>";
-// }
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +56,6 @@ if (isset($_GET['pkg'])) {
     <div class="main">
         <h1>Hotel Checkout</h1>
 
-
         <form action="getcheckout.php" method="POST">
             <div class="form-container">
                 <div class="form">
@@ -74,15 +72,17 @@ if (isset($_GET['pkg'])) {
                 </div>
             </div>
             <div class="summery">
-                <h2> Package Name : Family </h2>
-                <h2> Package Price : USD 250 </h2>
+                <?php 
+                echo "<h2> Package Name : $pkgname  </h2>";
+                echo "<h2> Package Price : USD $price  </h2>";
+                ?>
 
                 <label for="paymentMethod">Payment Method:</label>
                 <select id="paymentMethod" name="paymentMethod" required>
                     <option value="" disabled selected>Select a payment method</option>
                     <option value="credit_card">Credit Card</option>
                     <option value="debit_card">Debit Card</option>
-                    <option value="paypal">PayPal</option>
+                    <option value="pay_later">Pay Later</option>
                 </select>
                 <input type="submit" name="submit" value="Checkout">
             </div>
