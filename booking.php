@@ -10,13 +10,13 @@ if (isset($_GET['hotel'])) {
     $Hotel = $_GET['hotel'];
 
     // Check if the values exist in the database
-    $query = "SELECT * FROM `Hotel` WHERE hid='$Hotel'";
+    $query = "SELECT * FROM `hotel` WHERE hotel_id='$Hotel'";
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_array($result);
 
-    $name = $row['hName'];
-    $description = $row['hDescription'];
-    $imgname = $row['imgname'];
+    $name = $row['hotel_name'];
+    $description = $row['description'];
+    $imgname = $row['image'];
 } else {
     echo
     "<script>
@@ -75,22 +75,19 @@ if (isset($_GET['hotel'])) {
 
     <div class="packages">
         <?php
-        $query = "SELECT * FROM `packages` WHERE hid='$Hotel';";
+        $query = "SELECT * FROM `package` WHERE hotel_id='$Hotel';";
         $result = mysqli_query($conn, $query);
         // $row = mysqli_fetch_array($result);
 
         if ($result) {
             while ($row = mysqli_fetch_assoc($result)) {
-                $pkgid = $row['pkgid'];
-                $pkgname = $row['pkgname'];
-                // $imgname = $row['imgname'];
-                $price = $row['pkgprice'];
-
-                // echo $pkgid;
-                // echo $pkgname;
+                $pkgid = $row['package_id'];
+                $pkgname = $row['package_name'];
+                $pkgimg = $row['image'];
+                $price = $row['price'];
 
                 echo '<div class="card">';
-                echo '<img src="./assets/package/null.jpeg" alt="hotel">';
+                echo '<img src="./assets/package/'. $pkgimg .'" alt="hotel">';
                 echo '<h1>'. $pkgname .'</h1>';
                 echo '<h2>$ '. $price .'</h2>';
                 echo '<button onclick="location.href=\'./checkout.php?hotel=' . $Hotel . '&pkg=' . $pkgid . '\'" type="button">Book Now</button>';

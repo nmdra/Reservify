@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
   $hashpsw = sha1($password);
 
   // Check if the username or email already exists in the database
-  $select = mysqli_query($conn, "SELECT * FROM `user` WHERE email = '$email' OR username = '$username'");
+  $select = mysqli_query($conn, "SELECT * FROM `hotel_owner` WHERE email = '$email' OR username = '$username'");
   if (!$select) {
     // If the query fails, display an error message with the specific MySQL error
     $message[] = 'Database query error: ' . mysqli_error($conn);
@@ -29,7 +29,9 @@ if (isset($_POST['submit'])) {
   } else {
     // If neither the email nor username exists, you can proceed with registration
     // Insert user data into the database
-    $insert = mysqli_query($conn, "INSERT INTO `user` (`name`, `username`, `email`, `password`) VALUES ('$name', '$username', '$email', '$hashpsw')");
+    $insert = mysqli_query($conn, "INSERT INTO `hotel_owner` (`name`, `username`, `email`, `password`) VALUES ('$name', '$username', '$email', '$hashpsw')");
+
+    echo $insert;
 
     if ($insert) {
       // Registration successful
@@ -47,7 +49,7 @@ if (isset($_POST['submit'])) {
 
 <head>
   <meta charset="UTF-8">
-  <title>Reservify: Sign Up</title>
+  <title>Reservify: Sign Up - Owner</title>
   <!-- Include CSS files -->
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/register.css">
@@ -57,9 +59,9 @@ if (isset($_POST['submit'])) {
 
 <div class="outline">
 
-  <form action="register.php" method="POST" name="rForm" enctype="multipart/form-data" class="container">
+  <form action="ownerRegister.php" method="POST" name="rForm" enctype="multipart/form-data" class="container">
 
-    <h1>Sign Up : Customer</h1>
+    <h1>Sign Up : Owner</h1>
     <?php
     if (isset($message)) {
       foreach ($message as $message) {
@@ -91,9 +93,6 @@ if (isset($_POST['submit'])) {
     <div class="login-wrap">
       <p>Are you member? <a href="./login.php">Login</a></p>
     </div>
-    <div class="login-wrap">
-      <p>Are you Hotel Owner? <a href="./ownerRegister.php">Register Here.</a></p>
-    </div>
 
 </div>
 </form>
@@ -104,4 +103,3 @@ if (isset($_POST['submit'])) {
 <?php include "./partials/footer.php" ?>
 
 </html>
-

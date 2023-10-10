@@ -10,6 +10,7 @@ if (isset($_SESSION['username'])) {
     $message[] = 'Before Login. You must logout.';
     // exit();
 } else {
+
     // Check if the form is submitted
     if (isset($_POST['username']) and isset($_POST['password'])) {
         // Assign posted values to variables
@@ -18,38 +19,42 @@ if (isset($_SESSION['username'])) {
         $pass = $_POST['password'];
         $password = sha1($pass);
 
-        // Check if the values exist in the database
-        $query = "SELECT * FROM `user` WHERE uName='$username' and password='$password'";
-        $result = mysqli_query($conn, $query);
-        $count = mysqli_fetch_array($result);
+        if ($_POST['role'] == 'User') {
 
-        // If the posted values match database values, create a session for the user and redirect to the user dashboard
-        if ($count > 0) {
-            if ($count['role'] == 'User') {
-                //saving user data into session variables
-            $_SESSION['username'] = $count['uName'];
-            $_SESSION['name'] = $count['name'];
+            // Check if the values exist in the database
+            $query = "SELECT * FROM `user` WHERE username='$username' and password='$password'";
+            $result = mysqli_query($conn, $query);
+            $count = mysqli_fetch_array($result);
+            // echo $count
+            if ($count > 0) {
+                $_SESSION['username'] = $count['username'];
+                $_SESSION['name'] = $count['name'];
                 $message[] = $username . "Login Succesful";
                 header('location: userDashboard.php');
-            } else if ($count['role'] == 'Admin') {
-                //saving Admin data into session variables 
-            $_SESSION['username'] = $count['uName'];
-            $_SESSION['name'] = $count['name'];
- 
-                header('location: adminDashboard.php');
-            } else if ($count['role'] == 'Owner') {
-                //saving Admin data into session variables
-            $_SESSION['username'] = $count['uName'];
-            $_SESSION['name'] = $count['name'];
- 
+            } else {
+                $message[] = 'Invalid Login Credentials';
+            }
+        } elseif ($_POST['role'] == 'Owner') {
+            echo "test";
+            $query = "SELECT * FROM `hotel_owner` WHERE username='$username' and password='$password'";
+            $result = mysqli_query($conn, $query);
+            $count = mysqli_fetch_array($result);
+
+            if ($count > 0) {
+                $_SESSION['username'] = $count['owner_name'];
+                $_SESSION['name'] = $count['name'];
+                $message[] = $username . "Login Succesful";
                 header('location: ownerDashboard.php');
-            } 
+            } else {
+                // If login credentials don't match, show an error message and redirect to the login page
+                $message[] = 'Invalid Login Credentials';
+            }
         } else {
-            // If login credentials don't match, show an error message and redirect to the login page
-            $message[] = 'Invalid Login Credentials';
+            $message[] = 'Invalid Role';
         }
     }
 }
+
 ?>
 
 
@@ -63,6 +68,7 @@ if (isset($_SESSION['username'])) {
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/login.css">
 </head>
+
 <body>
     <!-- Include header -->
     <?php include "./partials/header.php" ?>
@@ -87,6 +93,14 @@ if (isset($_SESSION['username'])) {
                 <!-- Password input with validation -->
                 <input type="password" id="pass" name="password" placeholder="Password" required>
 
+                <div class="role-selection">
+                    <label for="user-role">Select Role:</label>
+                    <input type="radio" id="user-role" name="role" value="User" required>
+                    <label for="user-role">User</label>
+
+                    <input type="radio" id="owner-role" name="role" value="Owner" required>
+                    <label for="owner-role">Hotel Owner</label>
+                </div>
                 <!-- Login button -->
                 <input type="submit" id="login" value="Login">
         </form>

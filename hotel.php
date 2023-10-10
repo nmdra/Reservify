@@ -28,15 +28,15 @@ session_start()
 
         require_once './conn.php';
         // Check if the values exist in the database
-        $query = "SELECT * FROM `Hotel`";
+        $query = "SELECT * FROM `hotel`";
         $result = mysqli_query($conn, $query);
         // $row = mysqli_fetch_array($result);
 
         if ($result) {
             while ($row = mysqli_fetch_assoc($result)) {
-                $id = $row['hid'];
-                $name = $row['hName'];
-                $imgname = $row['imgname'];
+                $id = $row['hotel_id'];
+                $name = $row['hotel_name'];
+                $imgname = $row['image'];
 
                 echo '<div class="card">';
                 echo '<img src="./assets/hotel/' . $imgname . '" alt=hotel>';

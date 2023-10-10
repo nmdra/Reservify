@@ -86,3 +86,11 @@ input[type="password"] {
    font-size: 15px;
    font-family: 'Roboto', sans-serif;
 }
+
+.role-selection {
+    display: flex;
+    gap: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: 'Roboto', sans-serif;
+}
