@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Ubuntu:wght@500&display=swap');
 
 .outline {
-    height: 800px;
+    height: 750px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,6 +71,7 @@ input[type="password"] {
 
 .login-wrap {
     font-family: 'Roboto', sans-serif;
+    padding-bottom: 10px;
 }
 
 .message{
