@@ -3,38 +3,35 @@ session_start();
 
 require_once './conn.php';
 
-// if (!isset($_SESSION['username'])) {
-//     // $message[] = 'Before Login. You must logout.';
-//     echo "<script>
-//         alert('Before Checkout. You must login.');
-//         window.location.href='./login.php';
-//         </script>";
-//     // exit();
-// } else {
-$hotelid = $_GET['hotel'];
-$pkgid = $_GET['pkg'];
-
-$_SESSION['hotel'] = $hotelid;
-$_SESSION['package'] = $pkgid;
-
-if (isset($_GET['pkg'])) {
-
-    // Check if the values exist in the database
-    $query = "SELECT * FROM `package` WHERE package_id='$pkgid' and hotel_id='$hotelid';";
-    $result = mysqli_query($conn, $query);
-    $row = mysqli_fetch_array($result);
-
-    $pkg = $row['package_id'];
-    $pkgname = $row['package_name'];
-    $price = $row['price'];
-
-    echo $pkg;
+if (!isset($_SESSION['username'])) {
+    echo "<script>
+        alert('Before Checkout. You must login.');
+        window.location.href='./login.php';
+        </script>";
 } else {
-    echo
-    "<script>
+
+    $hotelid = $_GET['hotel'];
+    $pkgid = $_GET['pkg'];
+
+    $_SESSION['hotel'] = $hotelid;
+    $_SESSION['package'] = $pkgid;
+
+    if (isset($_GET['pkg'])) {
+        // Check if the values exist in the database
+        $query = "SELECT * FROM `package` WHERE package_id='$pkgid' and hotel_id='$hotelid';";
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_array($result);
+
+        $pkg = $row['package_id'];
+        $pkgname = $row['package_name'];
+        $price = $row['price'];
+    } else {
+        echo
+        "<script>
         alert('Hotel Not Available');
         window.location.href='./book.php';
         </script>";
+    }
 }
 ?>
 
@@ -72,7 +69,7 @@ if (isset($_GET['pkg'])) {
                 </div>
             </div>
             <div class="summery">
-                <?php 
+                <?php
                 echo "<h2> Package Name : $pkgname  </h2>";
                 echo "<h2> Package Price : USD $price  </h2>";
                 ?>
