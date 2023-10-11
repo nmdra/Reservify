@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 10, 2023 at 09:18 AM
+-- Generation Time: Oct 11, 2023 at 11:30 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -39,9 +39,9 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `admin_name`, `admin_email`, `admin_password`) VALUES
-(1, 'Admin1', 'admin1@example.com', 'password1'),
-(2, 'Admin2', 'admin2@example.com', 'password2'),
-(3, 'Admin3', 'admin3@example.com', 'password3');
+(1, 'Admin1', 'admin1@example.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
+(2, 'Admin2', 'admin2@example.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
+(3, 'Admin3', 'admin3@example.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
 
 -- --------------------------------------------------------
 
@@ -67,7 +67,7 @@ INSERT INTO `hotel` (`hotel_id`, `hotel_name`, `description`, `image`, `owner_id
 (3, 'Sunset Oasis Resort', 'Sunset Oasis Resort is a luxurious beachfront escape nestled along the pristine shores of a secluded tropical island. With its palm-fringed white sand beaches and crystal-clear turquoise waters, this resort offers the perfect setting for a romantic getaway or a family vacation. Guests can indulge in spa treatments, savor gourmet cuisine, and enjoy water sports while basking in the breathtaking sunset views.', 'img4.avif', 2),
 (4, 'Mountain View Resort', 'Tucked away in the heart of the picturesque alpine wilderness, Mountain View Lodge is a charming retreat for nature enthusiasts. Surrounded by towering pine trees and majestic mountain peaks, this cozy lodge provides comfortable accommodations, hiking trails, and access to outdoor adventures year-round. Whether you\'re seeking tranquility or outdoor excitement, Mountain View Lodge has it all.', 'img2.jpg', 3),
 (5, 'Serenity Springs', 'Serenity Springs Retreat is a secluded eco-friendly haven nestled in a lush forest. Designed for those seeking a digital detox and a reconnection with nature, this retreat offers cozy cabins with private hot tubs, guided meditation sessions, and hiking trails. Guests can unwind in a serene environment, listen to the sounds of the forest, and rejuvenate their mind, body, and soul.', 'img5.jpeg', 3),
-(6, 'Galadari', 'Galadari Hotel, traded as Galadari Hotels (Lanka) PLC, is a five-star luxury hotel in Colombo, Sri Lanka. Emirati conglomerate, Galadari Brothers are the controlling shareholders of the hotel company. The hotel commenced operations in 1984.', 'img5.jpeg', 2);
+(10, 'Jetwing Blu', 'Jetwing Blue is a new addition to our upscale collection of Sri Lankan beach hotels, located in Negombo on the sunny northwestern coastline. Negombo is a well-loved seaside destination with beautiful sandy shores, and this hotel continues our tradition of providing legendary Sri Lankan hospitality to guests from around the world.', 'Jetwing Blu.jpg', 10);
 
 -- --------------------------------------------------------
 
@@ -91,7 +91,9 @@ INSERT INTO `hotel_owner` (`owner_id`, `username`, `name`, `email`, `password`) 
 (1, 'Owner', 'pam', 'pam@example.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
 (2, 'Owner1', 'owner', 'owner1@example.com', 'password1'),
 (3, 'Owner2', 'owner', 'owner2@example.com', 'password2'),
-(4, 'Owner3', 'owner', 'owner3@example.com', 'password3');
+(4, 'Owner3', 'owner', 'owner3@example.com', 'password3'),
+(8, 'hh', 'test', 'hh', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
+(10, 'Anoj', 'Anoj', 'anoj@jetwing.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
 
 -- --------------------------------------------------------
 
@@ -123,7 +125,9 @@ INSERT INTO `package` (`package_id`, `package_name`, `price`, `hotel_id`, `image
 (9, 'Deluxe', 200.00, 4, 'null.jpeg'),
 (10, 'Premium', 200.00, 4, 'null.jpeg'),
 (11, 'Premium', 200.00, 5, 'null.jpeg'),
-(12, 'Deluxe', 200.00, 5, 'null.jpeg');
+(12, 'Deluxe', 200.00, 5, 'null.jpeg'),
+(30, 'Platinum', 299.00, 10, 'Platinum.jpg'),
+(31, 'Platinum', 299.00, 10, 'Platinum.jpg');
 
 -- --------------------------------------------------------
 
@@ -140,6 +144,17 @@ CREATE TABLE `reserve` (
   `hotel_id` int(11) NOT NULL,
   `package_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `reserve`
+--
+
+INSERT INTO `reserve` (`reserve_id`, `checkin_date`, `checkout_date`, `special_requirements`, `user_id`, `hotel_id`, `package_id`) VALUES
+(4, '2023-10-12', '2023-10-18', 'test', 4, 2, 3),
+(5, '2023-10-12', '2023-10-18', 'test', 4, 2, 3),
+(6, '2023-10-12', '2023-10-18', 'test', 4, 2, 3),
+(7, '2023-10-13', '2023-10-14', 'kjl', 4, 2, 3),
+(8, '2023-10-13', '2023-10-14', 'skjlds', 4, 3, 7);
 
 -- --------------------------------------------------------
 
@@ -164,7 +179,8 @@ INSERT INTO `user` (`user_id`, `username`, `name`, `email`, `password`) VALUES
 (2, 'dananji', 'dananji', 'dananji@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
 (3, 'gayashan', 'gayashan', 'gayashan@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
 (4, 'nmdra', 'Nimendra', 'nimendraonline@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(10, 'jim', 'Jim Halpert', 'jim@office.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+(10, 'jim', 'Jim Halpert', 'jim@office.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
+(13, 'slkd;', 'jsljk', 'sdls', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
 
 --
 -- Indexes for dumped tables
@@ -228,31 +244,31 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `hotel`
 --
 ALTER TABLE `hotel`
-  MODIFY `hotel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `hotel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `hotel_owner`
 --
 ALTER TABLE `hotel_owner`
-  MODIFY `owner_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `owner_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `package`
 --
 ALTER TABLE `package`
-  MODIFY `package_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `package_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `reserve`
 --
 ALTER TABLE `reserve`
-  MODIFY `reserve_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `reserve_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables

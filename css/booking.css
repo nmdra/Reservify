@@ -87,7 +87,7 @@ font-family: 'Ubuntu', sans-serif; */
 
 .card img {
     border-radius: 1.2rem;
-    height: 175px;
+    height: 150px;
     width: 95%;
     object-fit: cover;
 }

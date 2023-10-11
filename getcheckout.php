@@ -1,6 +1,6 @@
 <?php
 
- session_start();
+session_start();
 
 require_once './conn.php';
 
@@ -16,7 +16,7 @@ if (!isset($_SESSION['username'])) {
     $pkgid = $_SESSION['package'];
     $uid = $_SESSION['user_id'];
 }
-    
+
 if (isset($_POST['submit'])) {
     // Retrieve values from the form
     $checkinDate = $_POST['checkinDate'];
@@ -32,17 +32,17 @@ if (isset($_POST['submit'])) {
         alert(' 🎉 Checkout Succesfull .');
         window.location.href='./userDashboard.php';
         </script>";
-    
+
     if ($insert) {
-    echo
-    "<script>
+        echo
+        "<script>
         alert(' 🎉 Checkout Succesfull .');
         window.location.href='./userDashboard.php';
         </script>";
     } else {
-      // Registration failed
-    echo
-    "<script>
+        // Registration failed
+        echo
+        "<script>
         alert('Something went Wrong. Checkout Unsuccesfull.');
         window.location.href='./checkout.php';
         </script>";

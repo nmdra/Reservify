@@ -1,0 +1,91 @@
+ .main {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+     padding: 20px 0px 30px 0px;
+     height: auto;
+     font-family: Arial, sans-serif;
+     background-color: #f0f0f0;
+ }
+
+ h1 {
+     text-align: center;
+     color: #333;
+     padding: 20px;
+ }
+
+/* Apply styles to the container
+.container {
+     display: flex;
+     flex-direction: column;
+     gap: 10px;
+     width: 60%;
+     background-color: aliceblue;
+     border-radius: 1.2rem;
+     padding: 20px;
+} */
+
+ form {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     height: auto;
+     width: 60%;
+     gap: 10px;
+    background-color: aliceblue;
+     border: 3px solid purple;
+     border-radius: 5px;
+     padding: 20px;
+     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+ }
+
+/* Style the form header */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Style form labels and inputs */
+label {
+     font-weight: bold;
+     display: block;
+     padding: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+textarea,
+input[type="file"],
+select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Style the submit button */
+input[type="submit"] {
+    background-color: #3498db;
+    width: 30%;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Change submit button color on hover */
+input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+/* Style the textarea
+textarea {
+    resize: vertical;
+    height: 100px;
+} */

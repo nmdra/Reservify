@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-// $username = $_SESSION['username'];
-
 require_once './conn.php';
 
 if (isset($_GET['hotel'])) {
@@ -60,12 +58,12 @@ if (isset($_GET['hotel'])) {
     <div class="conMain">
         <div class="main-overlay">
             <div class="text">
-            <?php    
-            echo '<h1>'. $name .'</h1>';
-            echo '<div class="description">';
-            echo '<p>'. $description .'</p>';
-            echo  '</div>';
-            ?>
+                <?php
+                echo '<h1>' . $name . '</h1>';
+                echo '<div class="description">';
+                echo '<p>' . $description . '</p>';
+                echo  '</div>';
+                ?>
             </div>
         </div>
     </div>
@@ -77,7 +75,6 @@ if (isset($_GET['hotel'])) {
         <?php
         $query = "SELECT * FROM `package` WHERE hotel_id='$Hotel';";
         $result = mysqli_query($conn, $query);
-        // $row = mysqli_fetch_array($result);
 
         if ($result) {
             while ($row = mysqli_fetch_assoc($result)) {
@@ -87,10 +84,10 @@ if (isset($_GET['hotel'])) {
                 $price = $row['price'];
 
                 echo '<div class="card">';
-                echo '<img src="./assets/package/'. $pkgimg .'" alt="hotel">';
-                echo '<h1>'. $pkgname .'</h1>';
-                echo '<h2>$ '. $price .'</h2>';
-                echo '<button onclick="location.href=\'./checkout.php?hotel=' . $Hotel . '&pkg=' . $pkgid . '\'" type="button">Book Now</button>';
+                echo '<img src="./assets/package/' . $pkgimg . '" alt="hotel">';
+                echo '<h1>' . $pkgname . '</h1>';
+                echo '<h2>$ ' . $price . '</h2>';
+                echo '<button onclick="location.href=\'./checkout.php?hotel=' . $Hotel . '&pkg=' . $pkgid . '\'" type="button">Checkout</button>';
                 echo '</div>';
             }
         }
