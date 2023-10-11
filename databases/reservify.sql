@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 11, 2023 at 11:30 AM
+-- Generation Time: Oct 11, 2023 at 11:20 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -39,9 +39,9 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `admin_name`, `admin_email`, `admin_password`) VALUES
-(1, 'Admin1', 'admin1@example.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(2, 'Admin2', 'admin2@example.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(3, 'Admin3', 'admin3@example.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+(1, 'Gayashan', 'gayashan@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
+(2, 'Nimendra', 'nimendraonline@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
+(3, 'Aweesha', 'awee@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
 
 -- --------------------------------------------------------
 
@@ -88,11 +88,10 @@ CREATE TABLE `hotel_owner` (
 --
 
 INSERT INTO `hotel_owner` (`owner_id`, `username`, `name`, `email`, `password`) VALUES
-(1, 'Owner', 'pam', 'pam@example.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(2, 'Owner1', 'owner', 'owner1@example.com', 'password1'),
-(3, 'Owner2', 'owner', 'owner2@example.com', 'password2'),
-(4, 'Owner3', 'owner', 'owner3@example.com', 'password3'),
-(8, 'hh', 'test', 'hh', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
+(1, 'Pamela', 'Pam', 'pam@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
+(2, 'Michael', 'Michael', 'michael@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
+(3, 'Dwight', 'Dwight', 'dwight@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
+(4, 'jim', 'Jim', 'jim3@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
 (10, 'Anoj', 'Anoj', 'anoj@jetwing.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
 
 -- --------------------------------------------------------
@@ -114,20 +113,20 @@ CREATE TABLE `package` (
 --
 
 INSERT INTO `package` (`package_id`, `package_name`, `price`, `hotel_id`, `image`) VALUES
-(1, 'Delux Package', 250.00, 1, 'null.jpeg'),
-(2, 'Deluxe', 250.00, 2, 'null.jpeg'),
-(3, 'Premium', 150.00, 2, 'null.jpeg'),
-(4, 'Deluxe', 100.00, 2, 'null.jpeg'),
-(5, 'Premium', 200.00, 2, 'null.jpeg'),
-(6, 'Deluxe', 200.00, 3, 'null.jpeg'),
-(7, 'Premium', 200.00, 3, 'null.jpeg'),
-(8, 'Deluxe', 200.00, 3, 'null.jpeg'),
-(9, 'Deluxe', 200.00, 4, 'null.jpeg'),
-(10, 'Premium', 200.00, 4, 'null.jpeg'),
-(11, 'Premium', 200.00, 5, 'null.jpeg'),
-(12, 'Deluxe', 200.00, 5, 'null.jpeg'),
-(30, 'Platinum', 299.00, 10, 'Platinum.jpg'),
-(31, 'Platinum', 299.00, 10, 'Platinum.jpg');
+(31, 'Platinum', 1299.00, 10, 'Platinum.jpg'),
+(32, 'Family Fun', 499.00, 1, 'null.jpeg'),
+(33, 'Beachfront Bliss', 1100.00, 2, 'null.jpeg'),
+(34, 'Surf and Stay', 999.00, 2, 'null.jpeg'),
+(35, 'Beach Paradise', 799.00, 2, 'null.jpeg'),
+(36, 'Weekend Escape', 399.00, 4, 'null.jpeg'),
+(37, 'Sun, Sand, and Surf', 200.00, 3, 'null.jpeg'),
+(38, 'Ocean Adventure ', 200.00, 3, 'null.jpeg'),
+(39, 'Family Beach Fun', 749.00, 3, 'null.jpeg'),
+(40, 'Honeymoon Bliss', 849.00, 4, 'null.jpeg'),
+(41, 'Golf Enthusiast', 1199.00, 4, 'null.jpeg'),
+(42, 'Luxury Spa Retreat', 200.00, 5, 'null.jpeg'),
+(43, 'Nature Experience', 200.00, 5, 'null.jpeg'),
+(44, 'Island Getaway', 299.00, 10, 'Platinum.jpg');
 
 -- --------------------------------------------------------
 
@@ -139,7 +138,7 @@ CREATE TABLE `reserve` (
   `reserve_id` int(11) NOT NULL,
   `checkin_date` date NOT NULL,
   `checkout_date` date NOT NULL,
-  `special_requirements` text DEFAULT NULL,
+  `special_requirements` text DEFAULT 'No',
   `user_id` int(11) NOT NULL,
   `hotel_id` int(11) NOT NULL,
   `package_id` int(11) NOT NULL
@@ -150,11 +149,10 @@ CREATE TABLE `reserve` (
 --
 
 INSERT INTO `reserve` (`reserve_id`, `checkin_date`, `checkout_date`, `special_requirements`, `user_id`, `hotel_id`, `package_id`) VALUES
-(4, '2023-10-12', '2023-10-18', 'test', 4, 2, 3),
-(5, '2023-10-12', '2023-10-18', 'test', 4, 2, 3),
-(6, '2023-10-12', '2023-10-18', 'test', 4, 2, 3),
-(7, '2023-10-13', '2023-10-14', 'kjl', 4, 2, 3),
-(8, '2023-10-13', '2023-10-14', 'skjlds', 4, 3, 7);
+(9, '2023-10-12', '2023-10-14', 'No-smoking room', 4, 10, 31),
+(10, '2023-10-15', '2023-10-20', 'Late checkout and vegan meals', 4, 10, 31),
+(11, '2023-11-05', '2023-11-10', 'Early checkout and king-sized bed', 1, 2, 32),
+(12, '2023-12-01', '2023-12-05', 'No-smoking room', 3, 2, 33);
 
 -- --------------------------------------------------------
 
@@ -179,8 +177,7 @@ INSERT INTO `user` (`user_id`, `username`, `name`, `email`, `password`) VALUES
 (2, 'dananji', 'dananji', 'dananji@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
 (3, 'gayashan', 'gayashan', 'gayashan@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
 (4, 'nmdra', 'Nimendra', 'nimendraonline@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(10, 'jim', 'Jim Halpert', 'jim@office.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(13, 'slkd;', 'jsljk', 'sdls', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+(10, 'jim', 'Jim Halpert', 'jim@office.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
 
 --
 -- Indexes for dumped tables
@@ -256,13 +253,13 @@ ALTER TABLE `hotel_owner`
 -- AUTO_INCREMENT for table `package`
 --
 ALTER TABLE `package`
-  MODIFY `package_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `package_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `reserve`
 --
 ALTER TABLE `reserve`
-  MODIFY `reserve_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `reserve_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `user`

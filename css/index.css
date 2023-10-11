@@ -103,7 +103,12 @@ transition: background-color 0.3s ease, transform 0.3s ease;
 
   .HotelOwners {
 
-    height: 20vh;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 
     background-color: rgb(161, 161, 242);
   }
@@ -115,42 +120,17 @@ transition: background-color 0.3s ease, transform 0.3s ease;
     text-align: center;
   }
 
-  .HotelOwners button{
-    width: 200px;
-    padding: 15px;
-    text-align: center;
-    margin: 20px 10px;
-    border-radius: 25px;
-    font-weight: bold;
-    border: 2px solid #009688;
-    color: #4189b6;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-
-
-  }
-
-  span{
-    background: #009688;
-    height: 100%;
-    width: 100%;
-    border-radius: 25px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    z-index: -1;
-    transition: 2s;
-  }
-
-  button:hover span{
-    width: 100%;
-  }
-
-
-  button:hover{
-    border: none;
-  }
-  @media (max-width: 768px) {
-
-  }
+/* CSS */
+.HotelOwners button {
+  padding: 10px;
+  border: none;
+  width: 120px;
+  height: 40px;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  border-radius: 10px;
+  user-select: none;
+}

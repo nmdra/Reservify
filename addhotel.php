@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Hotel</title>
-    <link rel="stylesheet" href="./css/addhotel.css"> <!-- You can link your CSS file here if needed -->
+    <link rel="stylesheet" href="./css/addhotel.css">
 </head>
 
 <?php include "./partials/header.php" ?>
@@ -23,7 +23,7 @@
             <label for="image">Hotel Image:</label>
             <input type="file" id="image" name="image" accept="image/*" required>
 
-            <input type="submit" name="submit" value="Add Hotel"> <!-- Added the 'name' attribute to the submit button -->
+            <input type="submit" name="submit" value="Add Hotel"> 
         </form>
     </div>
 </body>

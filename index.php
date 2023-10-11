@@ -25,7 +25,7 @@ session_start();
                 <p>"Discover comfort and convenience with every reservation."</p>
             </div>
             <div>
-                <button onclick="location.href='./hotel.php'" class="checkout"> Checkout Hotels</button>
+                <button onclick="location.href='./hotel.php'" class="checkout"> Book Your Stay</button>
             </div>
         </div>
     </div>
