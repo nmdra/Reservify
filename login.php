@@ -36,14 +36,17 @@ if (isset($_SESSION['username'])) {
                 $message[] = 'Invalid Login Credentials';
             }
         } elseif ($_POST['role'] == 'Owner') {
-            echo "test";
             $query = "SELECT * FROM `hotel_owner` WHERE username='$username' and password='$password'";
             $result = mysqli_query($conn, $query);
             $count = mysqli_fetch_array($result);
 
+            // echo $count['owner_name'];
             if ($count > 0) {
-                $_SESSION['username'] = $count['owner_name'];
+                $_SESSION['username'] = $count['username'];
                 $_SESSION['name'] = $count['name'];
+                $_SESSION['user_id'] = $count['owner_id'];
+
+                // echo $count['owner_name'];
                 $message[] = $username . "Login Succesful";
                 header('location: ownerDashboard.php');
             } else {

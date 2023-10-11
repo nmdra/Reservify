@@ -3,12 +3,9 @@ session_start();
 ?>
 
 <?php
-// Include the database connection script
 require_once './conn.php';
 
-// Check if the form is submitted
 if (isset($_POST['submit'])) {
-  // Retrieve values from the form
   $name = $_POST['name'];
   $username = $_POST['uname'];
   $email = $_POST['email'];
@@ -19,15 +16,12 @@ if (isset($_POST['submit'])) {
   // Check if the username or email already exists in the database
   $select = mysqli_query($conn, "SELECT * FROM `user` WHERE email = '$email' OR username = '$username'");
   if (!$select) {
-    // If the query fails, display an error message with the specific MySQL error
     $message[] = 'Database query error: ' . mysqli_error($conn);
   } elseif (mysqli_num_rows($select) > 0) {
-    // If either the email or username already exists, display an error message
     $message[] = 'Username or email already exists';
   } elseif ($password != $rPassword) {
     $message[] = 'Password Mismatch!';
   } else {
-    // If neither the email nor username exists, you can proceed with registration
     // Insert user data into the database
     $insert = mysqli_query($conn, "INSERT INTO `user` (`name`, `username`, `email`, `password`) VALUES ('$name', '$username', '$email', '$hashpsw')");
 
@@ -55,53 +49,52 @@ if (isset($_POST['submit'])) {
 <!-- Include header -->
 <?php include "./partials/header.php" ?>
 
-<div class="outline">
+<body>
 
-  <form action="register.php" method="POST" name="rForm" enctype="multipart/form-data" class="container">
+  <div class="outline">
 
-    <h1>Sign Up : Customer</h1>
-    <?php
-    if (isset($message)) {
-      foreach ($message as $message) {
-        echo '<div class="message">' . $message . '</div>';
+    <form action="register.php" method="POST" name="rForm" enctype="multipart/form-data" class="container">
+
+      <h1>Sign Up : Customer</h1>
+      <?php
+      if (isset($message)) {
+        foreach ($message as $message) {
+          echo '<div class="message">' . $message . '</div>';
+        }
       }
-    }
-    ?>
-    <hr>
-      
-    <label for="name"><b>Name</b></label>
-    <input type="text" placeholder="Enter Name" name="name" required>
+      ?>
+      <hr>
 
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+      <label for="name"><b>Name</b></label>
+      <input type="text" placeholder="Enter Name" name="name" required>
 
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required>
 
-    <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
 
-    <p>By creating an account you agree to our <a href="./terms.php" style="color:dodgerblue">Terms.</a>.</p>
+      <label for="psw-repeat"><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
 
-    <input type="submit" id="register" name="submit" value="Sign Up">
+      <p>By creating an account you agree to our <a href="./terms.php" style="color:dodgerblue">Terms.</a>.</p>
 
-    <div class="login-wrap">
-      <p>Are you member? <a href="./login.php">Login</a></p>
-    </div>
-    <div class="login-wrap">
-      <p>Are you Hotel Owner? <a href="./ownerRegister.php">Register Here.</a></p>
-    </div>
+      <input type="submit" id="register" name="submit" value="Sign Up">
 
-</div>
-</form>
-</div>
-</div>
+      <div class="login-wrap">
+        <p>Are you member? <a href="./login.php">Login</a></p>
+      </div>
+      <div class="login-wrap">
+        <p>Are you Hotel Owner? <a href="./ownerRegister.php">Register Here.</a></p>
+      </div>
+
+    </form>
+  </div>
 </body>
-<!-- Include footer -->
+
 <?php include "./partials/footer.php" ?>
 
 </html>
-
