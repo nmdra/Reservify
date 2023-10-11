@@ -27,12 +27,6 @@ if (isset($_POST['submit'])) {
     $query = "INSERT INTO `reserve`(`checkin_date`, `checkout_date`, `special_requirements`, `user_id`, `hotel_id`, `package_id`) VALUES ('$checkinDate','$checkoutDate','$requirement','$uid','$hotelid','$pkgid')";
     $insert = mysqli_query($conn, $query);
 
-    echo
-    "<script>
-        alert(' 🎉 Checkout Succesfull .');
-        window.location.href='./userDashboard.php';
-        </script>";
-
     if ($insert) {
         echo
         "<script>

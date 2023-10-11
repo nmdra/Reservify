@@ -1,4 +1,5 @@
 <?php
+// <-- Table For owner dashboard -->
 session_start();
 
 require_once './conn.php';
@@ -9,7 +10,7 @@ if (!isset($_SESSION['username'])) {
         window.location.href='./login.php';
         </script>";
 } else {
-    $user_id = $_SESSION['user_id'];
+    $owner_id = $_SESSION['user_id'];
 }
 
 ?>
@@ -31,10 +32,9 @@ if (!isset($_SESSION['username'])) {
 
     </div>
 
-<?php include "./userTable.php" ?>
+<?php include "./ownerTable.php" ?>
 </body>
 
 <?php include "./partials/footer.php" ?>
 
 </html>
-
