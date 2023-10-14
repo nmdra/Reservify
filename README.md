@@ -1,8 +1,6 @@
 # IWT Project - Hotel Reservation System for Tourist
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/nmdra/Reservify.svg)](https://github.com/nmdra/Reservify/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/nmdra/Reservify.svg)](https://github.com/nmdra/Reservify/network)
 [![GitHub Issues](https://img.shields.io/github/issues/nmdra/Reservify.svg)](https://github.com/nmdra/Reservify/issues)
 
 ## Group Details
