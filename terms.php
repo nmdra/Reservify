@@ -64,8 +64,6 @@
         <p class="section-text">5.1. Reservify reserves the right to modify these terms and conditions at any time. Changes will be effective upon posting on our website.</p>
         <p class="section-text">5.2. It is your responsibility to review these terms periodically for updates.</p>
     </div>
-
-
 <?php include "./partials/footer.php" ?>
 </body>
 </html>

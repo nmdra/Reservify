@@ -29,13 +29,11 @@
             echo '<button class="username"><a href="./ownerDashboard.php">';
             echo $_SESSION['name'] . '</button>';
             echo '<button class="logoutbtn"><a href="./logout.php">Logout</a></button>';
-
-        }  elseif (isset($_SESSION['adminname'])) {
+        } elseif (isset($_SESSION['adminname'])) {
             // Display the user's username and a logout button
             echo '<button class="username"><a href="./adminDashboard.php">';
             echo $_SESSION['adminname'] . '</button>';
             echo '<button class="logoutbtn"><a href="./logout.php">Logout</a></button>';
-
         } else {
             // If no user is logged in, display login and register buttons
             echo '<button class="loginBtn"><a href="./login.php">Login</a></button>';
@@ -44,6 +42,4 @@
         ?>
     </div>
 </nav>
-
-
 </html>

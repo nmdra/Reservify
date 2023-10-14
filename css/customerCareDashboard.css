@@ -59,10 +59,6 @@ html {
     height: 100vh;
 }
 
-/* Style the navigation list (ul) */
-
-
-/* Style the navigation list items (li) */
 .sideBar ul {
     display: flex;
     flex-direction: column;

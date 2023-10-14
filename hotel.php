@@ -21,19 +21,16 @@ session_start()
             <h1>HOTELS</h1>
         </div>
 
-        <!-- Add a search bar and button -->
         <div class="search-container">
             <input type="text" id="hotelSearch" placeholder="Search for hotels...">
             <button onclick="searchHotels()">Search</button>
         </div>
 
         <div class="cardContainer">
-
-
             <?php
-
+            
             require_once './conn.php';
-            // Check if the values exist in the database
+           
             $query = "SELECT * FROM `hotel`";
             $result = mysqli_query($conn, $query);
             // $row = mysqli_fetch_array($result);
@@ -55,7 +52,6 @@ session_start()
             ?>
         </div>
     </div>
-
 </body>
 
 <script src="./js/search.js"></script>

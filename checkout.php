@@ -56,8 +56,7 @@ if (isset($_POST['submit'])) {
         </script>";
     }
 }
-
-
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -78,7 +77,7 @@ if (isset($_POST['submit'])) {
     <div class="main">
         <h1>Hotel Checkout</h1>
 
-       <?php echo '<form action="" method="POST">'; ?>
+        <form action="" method="POST">
             <div class="form-container">
                 <div class="form">
                     <label for="checkinDate">Check-in Date:</label>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['owner_id'])) {
   echo "<script>
         alert('You must login to access this page.');
         window.location.href='./login.php';
@@ -9,8 +9,8 @@ if (!isset($_SESSION['user_id'])) {
   // exit();
 } else {
 
-  $user_id = $_SESSION['user_id'];
-  $username = $_SESSION['username'];
+  $owner_id = $_SESSION['owner_id'];
+  $username = $_SESSION['ownername'];
   $name = $_SESSION['name'];
   $email = $_SESSION['email'];
 }
@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
 
   // Check if the username or email already exists in the database
 
-  $select = mysqli_query($conn, "SELECT * FROM `user` WHERE user_id != '$user_id' AND (email = '$email' OR username = '$username')");
+  $select = mysqli_query($conn, "SELECT * FROM `hotel_owner` WHERE owner_id != '$owner_id' AND (email = '$email' OR username = '$username')");
 
   if (!$select) {
     $message[] = 'Database query error: ' . mysqli_error($conn);
@@ -39,12 +39,12 @@ if (isset($_POST['submit'])) {
     $message[] = 'Password Mismatch!';
   } else {
     // Update user data in the database
-    $update = mysqli_query($conn, "UPDATE `user` SET `name`='$name', `username`='$username', `email`='$email', `password`='$hashpsw' WHERE user_id = '$user_id'");
+    $update = mysqli_query($conn, "UPDATE `hotel_owner` SET `name`='$name', `username`='$username', `email`='$email', `password`='$hashpsw' WHERE owner_id = '$owner_id'");
 
     if ($update) {
       session_destroy();
       // Update successful
-      $message[] = 'Registration successful. <br> Click here to <a href="./login.php">Log in with new Credentials.  .</a>';
+      $message[] = 'Registration successful. <br> Click here to <a href="./login.php">Log in with new Credentials.</a>';
     } else {
       // Update failed
       $message[] = 'Update failed. Please try again.';
@@ -52,7 +52,6 @@ if (isset($_POST['submit'])) {
   }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">

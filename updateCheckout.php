@@ -64,7 +64,7 @@ if (!isset($_SESSION['username'])) {
                 <textarea id="specialRequirements" name="specialRequirement" rows="4" placeholder="Enter any special requirements or notes"></textarea>
             </div>
         </div>
-            <input type="submit" name="submit" value="Checkout">
+        <input type="submit" name="submit" value="Checkout">
         </form>
     </div>
 </body>

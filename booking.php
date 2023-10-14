@@ -22,7 +22,6 @@ if (isset($_GET['hotel'])) {
         window.location.href='./book.php';
         </script>";
 }
-
 ?>
 
 <!DOCTYPE html>

@@ -2,21 +2,11 @@
 @import url(./reset.css);
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Ubuntu:wght@500&display=swap');
 
-/* Define root variables for colors */
 :root {
     --black: #191919;
     --white: #f3f3f3;
     --bg-color: #3D0072;
 }
-
-/* Set smooth scroll behavior for the entire HTML document */
-/* html {
-    scroll-behavior: smooth;
-    /* Prevent anchor links from scrolling behind a sticky header */
-    /* scroll-padding-top: auto; */
-/*    background-color: var(--white);
-} */
-
 
 /* Footer styles */
 footer {

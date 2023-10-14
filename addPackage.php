@@ -102,7 +102,7 @@ if (isset($_POST['submit'])) {
                 ?>
             </select>
 
-            <input type="submit" name="submit" value="Add Package"> <!-- Added the 'name' attribute to the submit button -->
+            <input type="submit" name="submit" value="Add Package"> 
 
         </form>
     </div>

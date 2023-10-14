@@ -1,5 +1,5 @@
-<?php 
-    session_start();
+<?php
+session_start();
 
 if (!isset($_SESSION['owner_id'])) {
     echo "<script>
@@ -56,8 +56,8 @@ if (!isset($_SESSION['owner_id'])) {
                         ?>
                     </div>
                     <div class="button">
-                        <p><button class="update-btn">Update Details</button></p>
-                        <p><button class="delete-btn">Delete My Account</button></p>
+                        <p><a class="update-btn" href="./ownerUpdate.php">Update Details</a></p>
+                        <?php echo '<p><a class="delete-btn" href="./delete.php?ownerid=' . $owner_id . '">Delete Account</a></p>'; ?>
                     </div>
                 </div>
                 <div class="pbtn">
@@ -184,11 +184,11 @@ if (!isset($_SESSION['owner_id'])) {
 
                                 $query = "SELECT p.package_id, p.package_name, h.hotel_name\n"
 
-                                . "FROM package p\n"
+                                    . "FROM package p\n"
 
-                                . "JOIN hotel h ON p.hotel_id = h.hotel_id\n"
+                                    . "JOIN hotel h ON p.hotel_id = h.hotel_id\n"
 
-                                . "WHERE h.owner_id = '$owner_id';";
+                                    . "WHERE h.owner_id = '$owner_id';";
 
                                 $result = mysqli_query($conn, $query);
 

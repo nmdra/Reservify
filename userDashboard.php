@@ -55,67 +55,67 @@ if (!isset($_SESSION['user_id'])) {
                         ?>
                     </div>
                     <div class="button">
-                        <p><button class="update-btn">Update Details</button></p>
-                        <p><button class="delete-btn">Delete My Account</button></p>
+                        <p><a class="update-btn" href="./userUpdate.php">Update Details</a></p>
+                        <?php echo '<p><a class="delete-btn" href="./delete.php?userid=' . $user_id . '">Delete Account</a></p>'; ?>
                     </div>
                 </div>
-                <div class="pbtn">
-                    <a href="./hotel.php"><button type="button">Add New Reservation</button></a>
-                    <a href="#reservations"><button type="button">Recent Reservation</button></a>
-                </div>
-            </section>
-            <section id="reservations">
-                <h1>My Reservations</h1>
-
-                <div class="table-main">
-                    <div class="table-wrapper">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Reserve ID</th>
-                                    <th>Check-In Date</th>
-                                    <th>Check-Out Date</th>
-                                    <th>Requirements</th>
-                                    <th colspan="2">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-
-                                require_once './conn.php';
-                                // Check if the values exist in the database
-                                $query = "SELECT * FROM `reserve` WHERE user_id='$user_id'";
-
-                                $result = mysqli_query($conn, $query);
-                                $count = mysqli_num_rows($result);
-
-                                if ($count > 0) {
-                                    while ($row = mysqli_fetch_assoc($result)) {
-                                        $id = $row['reserve_id'];
-                                        $checkindate = $row['checkin_date'];
-                                        $checkoutdate = $row['checkout_date'];
-                                        $requirements = $row['special_requirements'];
-
-                                        echo '<tr>';
-                                        echo '<td>' . $id . '</td>';
-                                        echo '<td>' . $checkindate . '</td>';
-                                        echo '<td>' . $checkoutdate . '</td>';
-                                        echo '<td>' . $requirements . '</td>';
-                                        echo '<td><a href="reserveEdit.php?reserveid=' . $id . '" class="edit-btn">Edit</a></td>';
-                                        echo '<td><a href="delete.php?reserveid=' . $id . '" class="delete-btn">Cancel</a></td>';
-                                        echo '<tr>';
-                                    }
-                                } else {
-                                    // no reservations, display a message
-                                    echo '<tr><td colspan="6">No reservations yet</td></tr>';
-                                }
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section>
+        <div class="pbtn">
+            <a href="./hotel.php"><button type="button">Add New Reservation</button></a>
+            <a href="#reservations"><button type="button">Recent Reservation</button></a>
         </div>
+        </section>
+        <section id="reservations">
+            <h1>My Reservations</h1>
+
+            <div class="table-main">
+                <div class="table-wrapper">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Reserve ID</th>
+                                <th>Check-In Date</th>
+                                <th>Check-Out Date</th>
+                                <th>Requirements</th>
+                                <th colspan="2">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+
+                            require_once './conn.php';
+                            // Check if the values exist in the database
+                            $query = "SELECT * FROM `reserve` WHERE user_id='$user_id'";
+
+                            $result = mysqli_query($conn, $query);
+                            $count = mysqli_num_rows($result);
+
+                            if ($count > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    $id = $row['reserve_id'];
+                                    $checkindate = $row['checkin_date'];
+                                    $checkoutdate = $row['checkout_date'];
+                                    $requirements = $row['special_requirements'];
+
+                                    echo '<tr>';
+                                    echo '<td>' . $id . '</td>';
+                                    echo '<td>' . $checkindate . '</td>';
+                                    echo '<td>' . $checkoutdate . '</td>';
+                                    echo '<td>' . $requirements . '</td>';
+                                    echo '<td><a href="reserveEdit.php?reserveid=' . $id . '" class="edit-btn">Edit</a></td>';
+                                    echo '<td><a href="delete.php?reserveid=' . $id . '" class="delete-btn">Cancel</a></td>';
+                                    echo '<tr>';
+                                }
+                            } else {
+                                // no reservations, display a message
+                                echo '<tr><td colspan="6">No reservations yet</td></tr>';
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
     </div>
 </body>
 
