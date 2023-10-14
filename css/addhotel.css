@@ -15,17 +15,6 @@
      padding: 20px;
  }
 
-/* Apply styles to the container
-.container {
-     display: flex;
-     flex-direction: column;
-     gap: 10px;
-     width: 60%;
-     background-color: aliceblue;
-     border-radius: 1.2rem;
-     padding: 20px;
-} */
-
  form {
      display: flex;
      flex-direction: column;
@@ -84,8 +73,3 @@ input[type="submit"]:hover {
     background-color: #2980b9;
 }
 
-/* Style the textarea
-textarea {
-    resize: vertical;
-    height: 100px;
-} */

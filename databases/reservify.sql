@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 14, 2023 at 04:08 PM
+-- Generation Time: Oct 14, 2023 at 10:36 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -64,8 +64,7 @@ CREATE TABLE `contact` (
 
 INSERT INTO `contact` (`msg_ID`, `sender_Name`, `email`, `phone`, `message`, `status`) VALUES
 (7, 'Sadun Herath', 's.herath@gmail.com', '0721222345', 'I booked a room through Reservify and upon arrival at the hotel, I found that the room did not meet my expectations. I was dissatisfied with the cleanliness and noise level in the assigned room.', 'Completed'),
-(8, 'Anya Perera', 'anya22@gmail.com', '0774506772', 'Hi Reservify!', 'Pending'),
-(12, 'lj', 'jkjl@nk', '7987', 'jljlkj', 'Pending');
+(8, 'Anya Perera', 'anya22@gmail.com', '0774506772', 'Hi Reservify!', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -116,7 +115,7 @@ INSERT INTO `hotel_owner` (`owner_id`, `username`, `name`, `email`, `password`) 
 (2, 'Michael', 'Michael', 'michael@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
 (3, 'Dwight', 'Dwight', 'dwight@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
 (4, 'jim', 'Jim', 'jim3@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(10, 'Anoj', 'Anoj', 'anoj@jetwing.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+(10, 'anoj', 'anoj', 'anoj@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
 
 -- --------------------------------------------------------
 
@@ -175,8 +174,7 @@ CREATE TABLE `reserve` (
 INSERT INTO `reserve` (`reserve_id`, `checkin_date`, `checkout_date`, `special_requirements`, `user_id`, `hotel_id`, `package_id`) VALUES
 (11, '2023-11-05', '2023-11-10', 'Late Checkout', 1, 2, 32),
 (12, '2023-12-01', '2023-12-05', 'No-smoking room', 3, 2, 33),
-(14, '2023-10-14', '2023-10-22', 'No smoking room', 4, 10, 31),
-(15, '2023-10-11', '2023-10-14', 'Late Checkout', 4, 5, 43);
+(33, '2023-10-12', '2023-10-21', 'Late Checkout', 4, 10, 31);
 
 -- --------------------------------------------------------
 
@@ -295,7 +293,7 @@ ALTER TABLE `package`
 -- AUTO_INCREMENT for table `reserve`
 --
 ALTER TABLE `reserve`
-  MODIFY `reserve_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `reserve_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `user`

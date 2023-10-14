@@ -48,6 +48,7 @@ if (!isset($_SESSION['owner_id'])) {
         }
     }
 }
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -75,7 +76,7 @@ if (!isset($_SESSION['owner_id'])) {
             <label for="image">Hotel Image:</label>
             <input type="file" id="image" name="image" accept="image/*" required>
 
-            <input type="submit" name="submit" value="Add Hotel"> 
+            <input type="submit" name="submit" value="Add Hotel">
         </form>
     </div>
 </body>

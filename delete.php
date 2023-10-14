@@ -75,6 +75,19 @@ if (isset($_GET['reserveid'])) {
             window.location.href='./customerCareDashboard.php';
             </script>";
     }
+} elseif (isset($_GET['ownerid'])) {
+    $id = $_GET['ownerid'];
+
+    $query = "DELETE FROM `hotel_owner` WHERE owner_id='$id'";
+    $delete = mysqli_query($conn, $query);
+
+    if ($delete) {
+        echo
+        "<script>
+        alert(' 🎉 Account Deleted...');
+        window.location.href='./ownerRegister.php';
+        </script>";
+    }
 }
 // close the connection
 mysqli_close($conn);

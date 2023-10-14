@@ -3,33 +3,45 @@ session_start();
 
 require_once './conn.php';
 
-if (!isset($_SESSION['username'])) {
-    echo "<script>
-        alert('Before Checkout. You must login.');
-        window.location.href='./login.php';
-        </script>";
+if (isset($_GET['reserveid'])) {
+    // Check if the values exist in the database
+    $reserve_id = $_GET['reserveid'];
 } else {
+    echo
+    "<script>
+    alert('Something Went Wrong');
+    window.location.href='./userDashboard#reservations.php';
+    </script>";
+}
 
-    $hotelid = $_GET['hotel'];
-    $pkgid = $_GET['pkg'];
+if (isset($_POST['submit'])) {
+    // Retrieve values from the form
 
-    $_SESSION['hotel'] = $hotelid;
-    $_SESSION['package'] = $pkgid;
+    $checkinDate = $_POST['checkinDate'];
+    $checkoutDate = $_POST['checkoutDate'];
+    $requirement = $_POST['specialRequirement'];
 
-    if (isset($_GET['pkg'])) {
-        // Check if the values exist in the database
-        $query = "SELECT * FROM `package` WHERE package_id='$pkgid' and hotel_id='$hotelid';";
-        $result = mysqli_query($conn, $query);
-        $row = mysqli_fetch_array($result);
+    // Modify the query to update the existing reservation
+    $query = "UPDATE `reserve` SET 
+                `checkin_date`='$checkinDate',
+                `checkout_date`='$checkoutDate',
+                `special_requirements`='$requirement'
+              WHERE `reserve_id`='$reserve_id'";
 
-        $pkg = $row['package_id'];
-        $pkgname = $row['package_name'];
-        $price = $row['price'];
-    } else {
+    $update = mysqli_query($conn, $query);
+
+    if ($update) {
         echo
         "<script>
-        alert('Hotel Not Available');
-        window.location.href='./book.php';
+        alert(' 🎉 Reservation Updated Successfully .');
+        window.location.href='./userDashboard.php#reservations';
+        </script>";
+    } else {
+        // Update failed
+        echo
+        "<script>
+        alert('Something went Wrong. Update Unsuccessful.');
+        window.location.href='./userDashboard.php#reservations';
         </script>";
     }
 }
@@ -52,7 +64,8 @@ if (!isset($_SESSION['username'])) {
 <body>
     <div class="main">
         <h1>Hotel Checkout</h1>
-        <form action="getcheckout.php" method="POST">
+
+        <form action="" method="POST">
             <div class="form-container">
                 <div class="form">
                     <label for="checkinDate">Check-in Date:</label>
@@ -67,9 +80,11 @@ if (!isset($_SESSION['username'])) {
                     <textarea id="specialRequirements" name="specialRequirement" rows="4" placeholder="Enter any special requirements or notes"></textarea>
                 </div>
             </div>
-                <input type="submit" name="submit" value="Checkout">
+            <div class="summery">
+                <input type="submit" name="submit" value="Update">
             </div>
         </form>
+    </div>
 </body>
 
 <?php include "./partials/footer.php" ?>

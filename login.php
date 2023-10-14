@@ -13,7 +13,6 @@ if (isset($_SESSION['username']) || isset($_SESSION['ownername']) || isset($_SES
 
     // Check if the form is submitted
     if (isset($_POST['username']) and isset($_POST['password'])) {
-        // Assign posted values to variables
 
         $username = $_POST['username'];
         $pass = $_POST['password'];
@@ -25,7 +24,7 @@ if (isset($_SESSION['username']) || isset($_SESSION['ownername']) || isset($_SES
             $query = "SELECT * FROM `user` WHERE username='$username' and password='$password'";
             $result = mysqli_query($conn, $query);
             $count = mysqli_fetch_array($result);
-            // echo $count
+
             if ($count > 0) {
                 $_SESSION['username'] = $count['username'];
                 $_SESSION['name'] = $count['name'];
@@ -59,7 +58,6 @@ if (isset($_SESSION['username']) || isset($_SESSION['ownername']) || isset($_SES
         }
     }
 }
-
 ?>
 
 
@@ -75,13 +73,11 @@ if (isset($_SESSION['username']) || isset($_SESSION['ownername']) || isset($_SES
 </head>
 
 <body>
-    <!-- Include header -->
     <?php include "./partials/header.php" ?>
 
     <div class="outline">
-        <!-- Login Form -->
 
-        <form method="POST" action="./login.php" name="loginform" enctype="multipart/form-data">
+        <form method="POST" action="" name="loginform" enctype="multipart/form-data">
             <div class="container">
                 <h1>Login</h1>
                 <?php
@@ -92,10 +88,8 @@ if (isset($_SESSION['username']) || isset($_SESSION['ownername']) || isset($_SES
                 }
                 ?>
                 <hr>
-                <!-- Username input with validation -->
                 <input type="text" id="username" name="username" placeholder="Username" required>
 
-                <!-- Password input with validation -->
                 <input type="password" id="pass" name="password" placeholder="Password" required>
 
                 <div class="role-selection">
@@ -106,20 +100,15 @@ if (isset($_SESSION['username']) || isset($_SESSION['ownername']) || isset($_SES
                     <input type="radio" id="owner-role" name="role" value="Owner" required>
                     <label for="owner-role">Hotel Owner</label>
                 </div>
-                <!-- Login button -->
                 <input type="submit" id="login" value="Login">
         </form>
 
-        <!-- Create Account Link -->
         <div class="create-account-wrap">
             <p>Not a member? <a href="./register.php">Create Account</a></p>
-        </div><!-- create-account-wrap -->
-    </div><!-- login-form-wrap -->
+        </div>
+    </div>
     </div>
 
-
-
-    <!-- Include footer -->
     <?php include "./partials/footer.php" ?>
 </body>
 
