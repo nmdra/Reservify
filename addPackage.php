@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['owner_id'])) {
     echo "<script>
         alert('Before Add Hotel. You must login.');
         window.location.href='./login.php';
@@ -9,9 +9,56 @@ if (!isset($_SESSION['user_id'])) {
 } else {
     require_once './conn.php';
 
-    $owner_id =  $_SESSION['user_id'];
+    $owner_id =  $_SESSION['owner_id'];
     $query = "SELECT `hotel_id`, `hotel_name`, `description`, `image`, `owner_id` FROM `hotel` WHERE owner_id=$owner_id;";
     $result = mysqli_query($conn, $query);
+}
+
+if (isset($_POST['submit'])) {
+    $hotelName = $_POST['hotel'];
+    $query = "SELECT * FROM `hotel` WHERE hotel_name = '$hotelName'";
+
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+
+    if (isset($_POST['submit'])) {
+        $hotelid = $row['hotel_id'];
+        $packagename = $_POST['packageName'];
+        $price = $_POST['price'];
+        $info = pathinfo($_FILES['image']['name']);
+        $ext = $info['extension'];
+        $imgname = $packagename . "." . $ext;
+
+        // Check if the image is uploaded successfully
+        if (move_uploaded_file($_FILES['image']['tmp_name'], 'assets/package/' . $imgname)) {
+
+            $insert = "INSERT INTO `package`(`package_name`, `price`, `hotel_id`, `image`) VALUES ('$packagename','$price','$hotelid','$imgname')";
+            $result = mysqli_query($conn, $insert);
+
+            if ($result) {
+                echo
+                "<script>
+            alert(' 🎉 Package added successfully.');
+            window.location.href='./ownerDashboard.php';
+            </script>";
+            } else {
+                // Insertion failed
+                echo
+                "<script>
+            alert('Error adding the Package. Please try again.');
+            window.location.href='./addPackage.php';
+            </script>";
+            }
+        } else {
+            // Image upload failed
+            echo "Error uploading the image. Please try again.";
+            echo
+            "<script>
+            alert('Error uploading the image. Please try again.');
+            window.location.href='./addPackage.php';
+            </script>";
+        }
+    }
 }
 ?>
 
@@ -31,7 +78,7 @@ if (!isset($_SESSION['user_id'])) {
     <div class="main">
         <h1>Add Package</h1>
 
-        <form action="addPackageHandler.php" method="POST" enctype="multipart/form-data">
+        <form action="addPackage.php" method="POST" enctype="multipart/form-data">
             <label for="packageName">Package Name:</label>
             <input type="text" id="packageName" name="packageName" required>
 

@@ -9,12 +9,9 @@ if (!isset($_SESSION['username'])) {
         window.location.href='./login.php';
         </script>";
 } else {
-
     $hotelid = $_GET['hotel'];
     $pkgid = $_GET['pkg'];
-
-    $_SESSION['hotel'] = $hotelid;
-    $_SESSION['package'] = $pkgid;
+    $uid = $_SESSION['user_id'];
 
     if (isset($_GET['pkg'])) {
         // Check if the values exist in the database
@@ -29,10 +26,38 @@ if (!isset($_SESSION['username'])) {
         echo
         "<script>
         alert('Hotel Not Available');
-        window.location.href='./book.php';
+        window.location.href='./booking.php';
         </script>";
     }
 }
+
+if (isset($_POST['submit'])) {
+    // Retrieve values from the form
+    $checkinDate = $_POST['checkinDate'];
+    $checkoutDate = $_POST['checkoutDate'];
+    $requirement = $_POST['specialRequirement'];
+    $payMethod = $_POST['paymentMethod'];
+
+    $query = "INSERT INTO `reserve`(`checkin_date`, `checkout_date`, `special_requirements`, `user_id`, `hotel_id`, `package_id`) VALUES ('$checkinDate','$checkoutDate','$requirement','$uid','$hotelid','$pkgid')";
+    $insert = mysqli_query($conn, $query);
+
+    if ($insert) {
+        echo
+        "<script>
+        alert(' 🎉 Checkout Succesfull .');
+        window.location.href='./userDashboard.php#reservations';
+        </script>";
+    } else {
+        // Registration failed
+        echo
+        "<script>
+        alert('Something went Wrong. Checkout Unsuccesfull.');
+        window.location.href='./checkout.php';
+        </script>";
+    }
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +78,7 @@ if (!isset($_SESSION['username'])) {
     <div class="main">
         <h1>Hotel Checkout</h1>
 
-        <form action="getcheckout.php" method="POST">
+       <?php echo '<form action="" method="POST">'; ?>
             <div class="form-container">
                 <div class="form">
                     <label for="checkinDate">Check-in Date:</label>
