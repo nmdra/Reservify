@@ -1,0 +1,131 @@
+/* Import external stylesheets */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Ubuntu:wght@500&display=swap');
+
+/* Set smooth scroll behavior for the entire HTML document */
+html {
+    background-color: var(--white);
+}
+
+.sideBar {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    width: 15vw;
+    min-height: 100vh;
+    height: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 20px;
+    padding-top: 30px;
+    position: fixed;
+    box-shadow: 0 1px 5px grey;
+    gap: 10px;
+}
+
+.sideBar a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+/* Style the site logo */
+.dashboard .sideBar .site-logo {
+    display: flex;
+    font-size: 30px;
+    padding-bottom: 30px;
+    text-decoration: none;
+    background-color: transparent;
+    font-size: 1.5em;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: normal;
+    text-align: center;
+    border: 2px rgb(243, 0, 117) solid;
+    padding: 5px;
+    border-radius: .5rem;
+    margin-bottom: 30px;
+}
+
+/* Style the content div */
+.content {
+    margin-left: 15vw;
+    padding: 20px;
+    font-size: 16px;
+    background-color: #f5f5f5;
+}
+
+#pending,
+#completed {
+    height: 100vh;
+}
+
+/* Style the navigation list (ul) */
+
+
+/* Style the navigation list items (li) */
+.sideBar ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-right: 20px;
+    font-size: 20px;
+    list-style: none;
+}
+
+.sideBar li a {
+    text-decoration: none;
+    color: #a8a8a8;
+    transition: all 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+}
+
+.sideBar li a:hover {
+    color: #fff;
+}
+
+section {
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+
+}
+
+section h1 {
+    font-size: 40px;
+    font-family: 'Roboto', sans-serif;
+    padding-bottom: 20px;
+}
+
+button {
+    background-color: #087add;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    /* margin: 4px 2px; */
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+button.action {
+    background-color: #087add;
+}
+
+button.action:hover {
+    background-color: #0163b8;
+}
+
+button.delete {
+    background-color: #dd0833;
+}
+
+button.delete:hover {
+    background-color: #bb0101;
+}
+
+a.textDesign {
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+}
