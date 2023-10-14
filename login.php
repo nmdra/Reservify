@@ -6,7 +6,7 @@ session_start();
 // Include the database connection script
 require_once './conn.php';
 
-if (isset($_SESSION['username'])) {
+if (isset($_SESSION['username']) || isset($_SESSION['ownername']) || isset($_SESSION['adminname'])) {
     $message[] = 'Before Login. You must logout.';
     // exit();
 } else {
@@ -30,6 +30,7 @@ if (isset($_SESSION['username'])) {
                 $_SESSION['username'] = $count['username'];
                 $_SESSION['name'] = $count['name'];
                 $_SESSION['user_id'] = $count['user_id'];
+                $_SESSION['email'] = $count['email'];
                 $message[] = $username . "Login Succesful";
                 header('location: userDashboard.php');
             } else {
@@ -42,10 +43,10 @@ if (isset($_SESSION['username'])) {
 
             // echo $count['owner_name'];
             if ($count > 0) {
-                $_SESSION['username'] = $count['username'];
+                $_SESSION['ownername'] = $count['username'];
                 $_SESSION['name'] = $count['name'];
-                $_SESSION['user_id'] = $count['owner_id'];
-
+                $_SESSION['owner_id'] = $count['owner_id'];
+                $_SESSION['email'] = $count['email'];
                 // echo $count['owner_name'];
                 $message[] = $username . "Login Succesful";
                 header('location: ownerDashboard.php');
