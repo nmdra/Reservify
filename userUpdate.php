@@ -60,11 +60,11 @@ if (isset($_POST['submit'])) {
 <head>
   <meta charset="UTF-8">
   <title>Reservify: Sign Up</title>
-  <!-- Include CSS files -->
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/register.css">
+  <script src="./js/validate.js"></script>
 </head>
-<!-- Include header -->
+
 <?php include "./partials/header.php" ?>
 
 <body>
@@ -81,24 +81,24 @@ if (isset($_POST['submit'])) {
         }
       }
       ?>
-      <hr>
+      <span id="validate"> </span>
 
       <label for="name"><b>Name</b></label>
       <input type="text" placeholder="Update Name" name="name" required>
 
       <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Update Username" name="uname" required>
+      <input type="text" placeholder="Update Username" id="uname" name="uname" required>
 
       <label for="email"><b>Email</b></label>
       <input type="email" placeholder="Update Email" name="email" required>
 
       <label for="psw"><b>New Password</b></label>
-      <input type="password" placeholder="Update Password" name="psw" required>
+      <input type="password" placeholder="Update Password" id="psw" name="psw" required>
 
       <label for="psw-repeat"><b>Confirm New Password</b></label>
       <input type="password" placeholder="Confirm Password" name="psw-repeat" required>
 
-      <input type="submit" id="register" name="submit" value="Update">
+      <input type="submit" id="register" name="submit" value="Update" onclick="validate()">
 
     </form>
   </div>

@@ -47,6 +47,7 @@ if (isset($_POST['submit'])) {
   <title>Reservify: Sign Up - Owner</title>
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/register.css">
+  <script src="./js/validate.js"></script>
 </head>
 
 <?php include "./partials/header.php" ?>
@@ -63,26 +64,26 @@ if (isset($_POST['submit'])) {
       }
     }
     ?>
-    <hr>
+      <span id="validate"> </span>
 
     <label for="name"><b>Name</b></label>
     <input type="text" placeholder="Enter Name" name="name" required>
 
     <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <input type="text" placeholder="Enter Username" id="uname" name="uname" required>
 
     <label for="email"><b>Email</b></label>
     <input type="email" placeholder="Enter Email" name="email" required>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password" placeholder="Enter Password" id="uname" name="psw" required>
 
     <label for="psw-repeat"><b>Repeat Password</b></label>
     <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
 
     <p>By creating an account you agree to our <a href="./terms.php" style="color:dodgerblue">Terms.</a>.</p>
 
-    <input type="submit" id="register" name="submit" value="Sign Up">
+    <input type="submit" id="register" name="submit" value="Sign Up" onclick="return validate()">
 
     <div class="login-wrap">
       <p>Are you member? <a href="./login.php">Login</a></p>
