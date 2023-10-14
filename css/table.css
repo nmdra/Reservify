@@ -42,7 +42,7 @@
 
 .table thead th {
     color: #ffffff;
-    background: #324960;
+    background: #8530d1;
     font-size: 20px;
 }
 
@@ -54,7 +54,7 @@
     text-decoration: none;
     border-radius: 8px;
     font-weight: bold;
-    background-color: #4CAF50;
+    background-color: #007bff;
     color: #fff;
 }
 

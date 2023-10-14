@@ -21,10 +21,11 @@
 /* Footer styles */
 footer {
     background-color: var(--bg-color);
+    position: relative;
     height: auto;
     display: flex;
     flex-direction: column;
-    z-index: 99;
+    z-index: 999;
 }
 
  footer .main-con {

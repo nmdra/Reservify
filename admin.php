@@ -21,9 +21,9 @@ if (isset($_SESSION['username'])) {
         $count = mysqli_fetch_array($result);
 
         if ($count > 0) {
-            $_SESSION['username'] = $count['admin_name'];
-            $_SESSION['user_id'] = $count['admin_id'];
-            $_SESSION['name'] = $count['admin_name'];
+            $_SESSION['adminname'] = $count['admin_name'];
+            $_SESSION['admin_id'] = $count['admin_id'];
+            $_SESSION['admin_email'] = $count['admin_email'];
             header('location: adminDashboard.php');
         } else {
             $message[] = 'Invalid Login Credentials';

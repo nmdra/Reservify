@@ -9,6 +9,12 @@
     --bg-color: #3D0072;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px;
+}
+
+
 /* Navigation styles */
 .navBar {
     display: flex;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 11, 2023 at 11:20 PM
+-- Generation Time: Oct 14, 2023 at 04:08 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -42,6 +42,30 @@ INSERT INTO `admin` (`admin_id`, `admin_name`, `admin_email`, `admin_password`) 
 (1, 'Gayashan', 'gayashan@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
 (2, 'Nimendra', 'nimendraonline@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
 (3, 'Aweesha', 'awee@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `msg_ID` int(11) NOT NULL,
+  `sender_Name` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `message` text NOT NULL,
+  `status` varchar(20) NOT NULL DEFAULT 'Pending'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`msg_ID`, `sender_Name`, `email`, `phone`, `message`, `status`) VALUES
+(7, 'Sadun Herath', 's.herath@gmail.com', '0721222345', 'I booked a room through Reservify and upon arrival at the hotel, I found that the room did not meet my expectations. I was dissatisfied with the cleanliness and noise level in the assigned room.', 'Completed'),
+(8, 'Anya Perera', 'anya22@gmail.com', '0774506772', 'Hi Reservify!', 'Pending'),
+(12, 'lj', 'jkjl@nk', '7987', 'jljlkj', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -149,10 +173,10 @@ CREATE TABLE `reserve` (
 --
 
 INSERT INTO `reserve` (`reserve_id`, `checkin_date`, `checkout_date`, `special_requirements`, `user_id`, `hotel_id`, `package_id`) VALUES
-(9, '2023-10-12', '2023-10-14', 'No-smoking room', 4, 10, 31),
-(10, '2023-10-15', '2023-10-20', 'Late checkout and vegan meals', 4, 10, 31),
-(11, '2023-11-05', '2023-11-10', 'Early checkout and king-sized bed', 1, 2, 32),
-(12, '2023-12-01', '2023-12-05', 'No-smoking room', 3, 2, 33);
+(11, '2023-11-05', '2023-11-10', 'Late Checkout', 1, 2, 32),
+(12, '2023-12-01', '2023-12-05', 'No-smoking room', 3, 2, 33),
+(14, '2023-10-14', '2023-10-22', 'No smoking room', 4, 10, 31),
+(15, '2023-10-11', '2023-10-14', 'Late Checkout', 4, 5, 43);
 
 -- --------------------------------------------------------
 
@@ -189,6 +213,12 @@ INSERT INTO `user` (`user_id`, `username`, `name`, `email`, `password`) VALUES
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`admin_id`),
   ADD UNIQUE KEY `admin_email` (`admin_email`);
+
+--
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`msg_ID`);
 
 --
 -- Indexes for table `hotel`
@@ -238,10 +268,16 @@ ALTER TABLE `admin`
   MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `msg_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
 -- AUTO_INCREMENT for table `hotel`
 --
 ALTER TABLE `hotel`
-  MODIFY `hotel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `hotel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `hotel_owner`
@@ -253,13 +289,13 @@ ALTER TABLE `hotel_owner`
 -- AUTO_INCREMENT for table `package`
 --
 ALTER TABLE `package`
-  MODIFY `package_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `package_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `reserve`
 --
 ALTER TABLE `reserve`
-  MODIFY `reserve_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `reserve_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `user`
