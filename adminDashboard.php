@@ -8,7 +8,6 @@ if (!isset($_SESSION['admin_id'])) {
         </script>";
     // exit();
 } else {
-
     $admin_id = $_SESSION['admin_id'];
     $name = $_SESSION['adminname'];
     $email = $_SESSION['admin_email'];
@@ -57,7 +56,7 @@ if (!isset($_SESSION['admin_id'])) {
                         ?>
                     </div>
                     <div class="button">
-                        <p><button class="update-btn">Update Details</button></p>
+                        <button class="update-btn"><a href="./updateEmployee.php">Update Details</a></button>
                         <!-- <p><button class="delete-btn">Delete My Account</button></p> -->
                     </div>
                 </div>
@@ -68,7 +67,7 @@ if (!isset($_SESSION['admin_id'])) {
                     <a href="./customerCareDashboard.php"><button type="button">Customer Care Dashboard</button></a>
                 </div>
             </section>
-            <!-- Add user management content here -->
+            <!-- User management -->
             <section id="user">
                 <h1>User Management</h1>
                 <div class="table-main">
@@ -79,40 +78,40 @@ if (!isset($_SESSION['admin_id'])) {
                                     <th>User ID</th>
                                     <th>Username</th>
                                     <th>Email</th>
-                                    <th>Actions</th>
+                                    <th colspan="2">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                // // Add PHP code to fetch and display user data in the table
-                                // // Modify the SQL query to retrieve user data as needed
-                                // $query = "SELECT user_id, username, email FROM user";
-                                // $result = mysqli_query($conn, $query);
+                                require_once './conn.php';
 
-                                // if ($result) {
-                                //     while ($row = mysqli_fetch_assoc($result)) {
-                                //         $userId = $row['user_id'];
-                                //         $username = $row['username'];
-                                //         $email = $row['email'];
+                                $query = "SELECT user_id, username, email FROM user";
+                                $result = mysqli_query($conn, $query);
 
-                                //         echo '<tr>';
-                                //         echo '<td>' . $userId . '</td>';
-                                //         echo '<td>' . $username . '</td>';
-                                //         echo '<td>' . $email . '</td>';
-                                //         echo '<td> <!-- Add action buttons here --> </td>';
-                                //         echo '</tr>';
-                                //     }
-                                // } else {
-                                //     echo '<tr><td colspan="4">No users found.</td></tr>';
-                                // }
+                                if ($result) {
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        $userid = $row['user_id'];
+                                        $username = $row['username'];
+                                        $email = $row['email'];
+
+                                        echo '<tr>';
+                                        echo '<td>' . $userid . '</td>';
+                                        echo '<td>' . $username . '</td>';
+                                        echo '<td>' . $email . '</td>';
+                                        echo '<td><a href="userUpdate.php?userid=' . $userid . '" class="edit-btn">Edit</a></td>';
+                                        echo '<td><a href="delete.php?userid=' . $userid . '" class="delete-btn">Remove</a></td>';
+                                        echo '<tr>';
+                                    }
+                                } else {
+                                    echo '<tr><td colspan="4">No users found.</td></tr>';
+                                }
                                 ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </section>
-            </section>
-            <!-- Add employee management content here -->
+            <!-- Employee management -->
             <section id="employee">
                 <h1>Employee Management</h1>
                 <div class="table-main">
@@ -123,40 +122,39 @@ if (!isset($_SESSION['admin_id'])) {
                                     <th>Employee ID</th>
                                     <th>Name</th>
                                     <th>Email</th>
-                                    <th>Actions</th>
+                                    <th colspan="2">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                // Add PHP code to fetch and display employee data in the table
-                                // Modify the SQL query to retrieve employee data as needed
-                                // $query = "SELECT employee_id, name, email FROM employee";
-                                // $result = mysqli_query($conn, $query);
+                                require_once './conn.php';
+                                $query = "SELECT admin_id, admin_name, admin_email FROM admin";
+                                $result = mysqli_query($conn, $query);
 
-                                // if ($result) {
-                                //     while ($row = mysqli_fetch_assoc($result)) {
-                                //         $employeeId = $row['employee_id'];
-                                //         $name = $row['name'];
-                                //         $email = $row['email'];
+                                if ($result) {
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        $adminid = $row['admin_id'];
+                                        $adminname = $row['admin_name'];
+                                        $adminemail = $row['admin_email'];
 
-                                //         echo '<tr>';
-                                //         echo '<td>' . $employeeId . '</td>';
-                                //         echo '<td>' . $name . '</td>';
-                                //         echo '<td>' . $email . '</td>';
-                                //         echo '<td> <!-- Add action buttons here --> </td>';
-                                //         echo '</tr>';
-                                //     }
-                                // } else {
-                                //     echo '<tr><td colspan="4">No employees found.</td></tr>';
-                                // }
+                                        echo '<tr>';
+                                        echo '<td>' . $adminid . '</td>';
+                                        echo '<td>' . $adminname . '</td>';
+                                        echo '<td>' . $adminemail . '</td>';
+                                        echo '<td><a href="update.php?employeeid=' . $adminid . '" class="edit-btn">Edit</a></td>';
+                                        echo '<td><a href="delete.php?employeeid=' . $adminid . '" class="delete-btn">Remove</a></td>';
+                                        echo '</tr>';
+                                    }
+                                } else {
+                                    echo '<tr><td colspan="4">No employees found.</td></tr>';
+                                }
                                 ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </section>
-            </section>
-            <!-- Add hotel owner management content here -->
+            <!-- Hotel owner management -->
             <section id="hotelOwner">
                 <h1>Hotel Owner Management</h1>
                 <div class="table-main">
@@ -167,38 +165,38 @@ if (!isset($_SESSION['admin_id'])) {
                                     <th>Owner ID</th>
                                     <th>Name</th>
                                     <th>Email</th>
-                                    <th>Actions</th>
+                                    <th colspan="2">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
+
                                 <?php
-                                // Add PHP code to fetch and display hotel owner data in the table
-                                // Modify the SQL query to retrieve hotel owner data as needed
-                                // $query = "SELECT owner_id, name, email FROM hotel_owner";
-                                // $result = mysqli_query($conn, $query);
+                                require_once './conn.php';
+                                $query = "SELECT owner_id, name, email FROM hotel_owner";
+                                $result = mysqli_query($conn, $query);
 
-                                // if ($result) {
-                                //     while ($row = mysqli_fetch_assoc($result)) {
-                                //         $ownerId = $row['owner_id'];
-                                //         $name = $row['name'];
-                                //         $email = $row['email'];
+                                if ($result) {
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        $ownerid = $row['owner_id'];
+                                        $name = $row['name'];
+                                        $email = $row['email'];
 
-                                //         echo '<tr>';
-                                //         echo '<td>' . $ownerId . '</td>';
-                                //         echo '<td>' . $name . '</td>';
-                                //         echo '<td>' . $email . '</td>';
-                                //         echo '<td> <!-- Add action buttons here --> </td>';
-                                //         echo '</tr>';
-                                //     }
-                                // } else {
-                                //     echo '<tr><td colspan="4">No hotel owners found.</td></tr>';
-                                // }
+                                        echo '<tr>';
+                                        echo '<td>' . $ownerid . '</td>';
+                                        echo '<td>' . $name . '</td>';
+                                        echo '<td>' . $email . '</td>';
+                                        echo '<td><a href="ownerUpdate.php?ownerid=' . $ownerid . '" class="edit-btn">Edit</a></td>';
+                                        echo '<td><a href="delete.php?ownerid=' . $ownerid . '" class="delete-btn">Remove</a></td>';
+                                        echo '</tr>';
+                                    }
+                                } else {
+                                    echo '<tr><td colspan="4">No hotel owners found.</td></tr>';
+                                }
                                 ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
-            </section>
             </section>
         </div>
     </div>

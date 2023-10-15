@@ -56,7 +56,7 @@ if (!isset($_SESSION['user_id'])) {
                     </div>
                     <div class="button">
                         <p><a class="update-btn" href="./userUpdate.php">Update Details</a></p>
-                        <?php echo '<p><a class="delete-btn" href="./delete.php?userid=' . $user_id . '">Delete Account</a></p>'; ?>
+                        <?php echo '<p><a class="delete-btn" href="./delete.php?uuserid=' . $user_id . '">Delete Account</a></p>'; ?>
                     </div>
                 </div>
         <div class="pbtn">
