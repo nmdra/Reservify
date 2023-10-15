@@ -90,7 +90,7 @@ if (isset($_POST['submit'])) {
       <input type="text" placeholder="Update Username" id="uname" name="uname" required>
 
       <label for="email"><b>Email</b></label>
-      <input type="email" placeholder="Update Email" name="email" required>
+      <input type="email" placeholder="Update Email" id="email" name="email" required>
 
       <label for="psw"><b>New Password</b></label>
       <input type="password" placeholder="Update Password" id="uname" name="psw" required>
