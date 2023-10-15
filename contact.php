@@ -17,14 +17,14 @@ if (isset($_POST['submit'])) {
     $insert = mysqli_query($conn, "INSERT INTO `contact` (`sender_Name`, `email`, `phone`, `message`) VALUES ('$name', '$email', '$phone', '$message')");
     
     if ($insert) {
-        // Registration successful
+        //  successful
         echo
         "<script>
         alert(' 🎉 Message Succesfully Submited.. .');
         window.location.href='./contact.php';
         </script>";
     } else {
-        // Registration failed
+        // failed
         echo
         "<script>
         alert(' Something went wrong Try Again.. .');
@@ -68,7 +68,7 @@ mysqli_close($conn);
 
                 <div class="contactForm">
 
-    <form action="contact.php" method="POST" name="rForm" enctype="multipart/form-data">
+    <form action="contact.php" method="POST" name="cForm" enctype="multipart/form-data">
 
                         <lable for="name"><b>Name</b></lable>
                         <input class="inputbox" type="text" name="name" placeholder="Enter Name" required>

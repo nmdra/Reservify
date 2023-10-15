@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 14, 2023 at 10:36 PM
+-- Generation Time: Oct 15, 2023 at 07:40 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -39,9 +39,10 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `admin_name`, `admin_email`, `admin_password`) VALUES
-(1, 'Gayashan', 'gayashan@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(2, 'Nimendra', 'nimendraonline@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(3, 'Aweesha', 'awee@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+(1, 'Gayashan', 'gayashan@gmail.com', '7c222fb2927d828af22f592134e8932480637c0d'),
+(2, 'Nimendra', 'nimendraonline@gmail.com', '7c222fb2927d828af22f592134e8932480637c0d'),
+(3, 'Aweesha', 'aweeshathawishanka@gmail.com', '7c222fb2927d828af22f592134e8932480637c0d'),
+(4, 'Dhananji', 'dhananji@gmail.com', '7c222fb2927d828af22f592134e8932480637c0d');
 
 -- --------------------------------------------------------
 
@@ -90,7 +91,7 @@ INSERT INTO `hotel` (`hotel_id`, `hotel_name`, `description`, `image`, `owner_id
 (3, 'Sunset Oasis Resort', 'Sunset Oasis Resort is a luxurious beachfront escape nestled along the pristine shores of a secluded tropical island. With its palm-fringed white sand beaches and crystal-clear turquoise waters, this resort offers the perfect setting for a romantic getaway or a family vacation. Guests can indulge in spa treatments, savor gourmet cuisine, and enjoy water sports while basking in the breathtaking sunset views.', 'img4.avif', 2),
 (4, 'Mountain View Resort', 'Tucked away in the heart of the picturesque alpine wilderness, Mountain View Lodge is a charming retreat for nature enthusiasts. Surrounded by towering pine trees and majestic mountain peaks, this cozy lodge provides comfortable accommodations, hiking trails, and access to outdoor adventures year-round. Whether you\'re seeking tranquility or outdoor excitement, Mountain View Lodge has it all.', 'img2.jpg', 3),
 (5, 'Serenity Springs', 'Serenity Springs Retreat is a secluded eco-friendly haven nestled in a lush forest. Designed for those seeking a digital detox and a reconnection with nature, this retreat offers cozy cabins with private hot tubs, guided meditation sessions, and hiking trails. Guests can unwind in a serene environment, listen to the sounds of the forest, and rejuvenate their mind, body, and soul.', 'img5.jpeg', 3),
-(10, 'Jetwing Blu', 'Jetwing Blue is a new addition to our upscale collection of Sri Lankan beach hotels, located in Negombo on the sunny northwestern coastline. Negombo is a well-loved seaside destination with beautiful sandy shores, and this hotel continues our tradition of providing legendary Sri Lankan hospitality to guests from around the world.', 'Jetwing Blu.jpg', 10);
+(10, 'JetWing Blu', 'Jetwing Blue is a new addition to our upscale collection of Sri Lankan beach hotels, located in Negombo on the sunny northwestern coastline. Negombo is a well-loved seaside destination with beautiful sandy shores, and this hotel continues our tradition of providing legendary Sri Lankan hospitality to guests from around the world.', 'JetWing Blu.jpg', 10);
 
 -- --------------------------------------------------------
 
@@ -111,11 +112,11 @@ CREATE TABLE `hotel_owner` (
 --
 
 INSERT INTO `hotel_owner` (`owner_id`, `username`, `name`, `email`, `password`) VALUES
-(1, 'Pamela', 'Pam', 'pam@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
+(1, 'Pam', 'Pam', 'pambeesly@gmail.com', '7c222fb2927d828af22f592134e8932480637c0d'),
 (2, 'Michael', 'Michael', 'michael@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
 (3, 'Dwight', 'Dwight', 'dwight@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
 (4, 'jim', 'Jim', 'jim3@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(10, 'anoj', 'anoj', 'anoj@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+(10, 'Anoj', 'Anoj', 'anoj@jetwing.com', '7c222fb2927d828af22f592134e8932480637c0d');
 
 -- --------------------------------------------------------
 
@@ -136,20 +137,19 @@ CREATE TABLE `package` (
 --
 
 INSERT INTO `package` (`package_id`, `package_name`, `price`, `hotel_id`, `image`) VALUES
-(31, 'Platinum', 1299.00, 10, 'Platinum.jpg'),
-(32, 'Family Fun', 499.00, 1, 'null.jpeg'),
+(32, 'Family Fun', 499.00, 1, 'family.jpg'),
 (33, 'Beachfront Bliss', 1100.00, 2, 'null.jpeg'),
-(34, 'Surf and Stay', 999.00, 2, 'null.jpeg'),
+(34, 'Surf and Stay', 999.00, 2, 'Platinum.jpg'),
 (35, 'Beach Paradise', 799.00, 2, 'null.jpeg'),
 (36, 'Weekend Escape', 399.00, 4, 'null.jpeg'),
 (37, 'Sun, Sand, and Surf', 200.00, 3, 'null.jpeg'),
 (38, 'Ocean Adventure ', 200.00, 3, 'null.jpeg'),
 (39, 'Family Beach Fun', 749.00, 3, 'null.jpeg'),
-(40, 'Honeymoon Bliss', 849.00, 4, 'null.jpeg'),
-(41, 'Golf Enthusiast', 1199.00, 4, 'null.jpeg'),
-(42, 'Luxury Spa Retreat', 200.00, 5, 'null.jpeg'),
+(40, 'Honeymoon Bliss', 849.00, 4, 'romantic.jpg'),
+(41, 'Golf Enthusiast', 1199.00, 4, 'Tournament.jpg'),
+(42, 'Luxury Spa Retreat', 200.00, 5, 'spa_main.jpg'),
 (43, 'Nature Experience', 200.00, 5, 'null.jpeg'),
-(44, 'Island Getaway', 299.00, 10, 'Platinum.jpg');
+(44, 'Island Gateway', 899.00, 10, 'Island Gateway.jpg');
 
 -- --------------------------------------------------------
 
@@ -172,9 +172,7 @@ CREATE TABLE `reserve` (
 --
 
 INSERT INTO `reserve` (`reserve_id`, `checkin_date`, `checkout_date`, `special_requirements`, `user_id`, `hotel_id`, `package_id`) VALUES
-(11, '2023-11-05', '2023-11-10', 'Late Checkout', 1, 2, 32),
-(12, '2023-12-01', '2023-12-05', 'No-smoking room', 3, 2, 33),
-(33, '2023-10-12', '2023-10-21', 'Late Checkout', 4, 10, 31);
+(12, '2023-12-01', '2023-12-05', 'No-smoking room', 3, 2, 33);
 
 -- --------------------------------------------------------
 
@@ -195,11 +193,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `username`, `name`, `email`, `password`) VALUES
-(1, 'awee', 'aweesha', 'aweesha@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(2, 'dananji', 'dananji', 'dananji@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(3, 'gayashan', 'gayashan', 'gayashan@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(4, 'nmdra', 'Nimendra', 'nimendraonline@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(10, 'jim', 'Jim Halpert', 'jim@office.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220');
+(3, 'Hansaja', 'Hansaja', 'hansajagayashan@gmail.com', '7c222fb2927d828af22f592134e8932480637c0d');
 
 --
 -- Indexes for dumped tables
@@ -263,13 +257,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `msg_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `msg_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `hotel`
@@ -293,13 +287,13 @@ ALTER TABLE `package`
 -- AUTO_INCREMENT for table `reserve`
 --
 ALTER TABLE `reserve`
-  MODIFY `reserve_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `reserve_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- Constraints for dumped tables

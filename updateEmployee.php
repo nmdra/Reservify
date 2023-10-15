@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+// check employeeid
 if (isset($_GET['employeeid'])) {
     $employee_id = $_GET['employeeid'];
 } elseif (isset($_SESSION['admin_id'])) {
