@@ -1,18 +1,14 @@
 <?php
 session_start();
-
-if (!isset($_SESSION['owner_id'])) {
+if (isset($_GET['ownerid'])) {
+  $owner_id = $_GET['ownerid'];
+} elseif (isset($_SESSION['owner_id'])) {
+  $owner_id = $_SESSION['owner_id'];
+} else {
   echo "<script>
         alert('You must login to access this page.');
         window.location.href='./login.php';
         </script>";
-  // exit();
-} else {
-
-  $owner_id = $_SESSION['owner_id'];
-  $username = $_SESSION['ownername'];
-  $name = $_SESSION['name'];
-  $email = $_SESSION['email'];
 }
 ?>
 
@@ -41,14 +37,18 @@ if (isset($_POST['submit'])) {
     // Update user data in the database
     $update = mysqli_query($conn, "UPDATE `hotel_owner` SET `name`='$name', `username`='$username', `email`='$email', `password`='$hashpsw' WHERE owner_id = '$owner_id'");
 
-    if ($update) {
-      session_destroy();
-      // Update successful
-      $message[] = 'Registration successful. <br> Click here to <a href="./login.php">Log in with new Credentials.</a>';
-    } else {
-      // Update failed
-      $message[] = 'Update failed. Please try again.';
-    }
+        if ($update and (isset($_GET['ownerid']))) {
+            // Update successful
+            echo "<script>
+        alert('Hotel owner Details Update Succesfull...');
+        window.location.href = './adminDashboard.php#hotelOwner';
+        </script>";
+        } elseif ($update and (!isset($_GET['ownerid']))) {
+            session_destroy();
+            $message[] = 'Update successful. <br> Click here to <a href="./login.php">Log in with new Credentials.</a>';
+        } else {
+            $message[] = 'Update failed. Please try again.';
+        }
   }
 }
 ?>
@@ -98,7 +98,7 @@ if (isset($_POST['submit'])) {
       <label for="psw-repeat"><b>Confirm New Password</b></label>
       <input type="password" placeholder="Confirm Password" name="psw-repeat" required>
 
-      <input type="submit" id="register" name="submit" value="Update" onclick="validate()">
+      <input type="submit" id="register" name="submit" value="Update" onclick="return validate()">
 
     </form>
   </div>
