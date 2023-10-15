@@ -1,4 +1,5 @@
 <?php
+    session_start();
 
 require_once './conn.php';
 
@@ -50,8 +51,8 @@ if (isset($_GET['reserveid'])) {
     if ($delete) {
         echo
         "<script>
-        alert(' 🎉 You account Deleted.');
-        window.location.href='./login.php';
+        alert(' 🎉 Account has been deleted.');
+        window.location.href = 'javascript:history.go(-1)';
         </script>";
     }
 } elseif (isset($_GET['msgid'])) {
@@ -85,7 +86,50 @@ if (isset($_GET['reserveid'])) {
         echo
         "<script>
         alert(' 🎉 Account Deleted...');
-        window.location.href='./ownerRegister.php';
+        window.location.href = 'javascript:history.go(-1)';
+        </script>";
+    }
+} elseif (isset($_GET['uuserid'])) {
+    $id = $_GET['uuserid'];
+
+    $query = "DELETE FROM `user` WHERE user_id='$id'";
+    $delete = mysqli_query($conn, $query);
+
+    if ($delete) {
+        session_destroy();
+        echo
+        "<script>
+        alert(' 🎉 Your account has been deleted.');
+        window.location.href = './register.php';
+        </script>";
+    }
+} elseif (isset($_GET['oownerid'])) {
+    $id = $_GET['oownerid'];
+
+    $query = "DELETE FROM `hotel_owner` WHERE owner_id='$id'";
+    $delete = mysqli_query($conn, $query);
+
+    if ($delete) {
+
+        session_destroy();
+
+        echo
+        "<script>
+        alert(' 🎉 Account Deleted...');
+        window.location.href = './ownerRegister.php';
+        </script>";
+    }
+} elseif (isset($_GET['employeeid'])) {
+    $id = $_GET['employeeid'];
+
+    $query = "DELETE FROM `admin` WHERE admin_id='$id'";
+    $delete = mysqli_query($conn, $query);
+
+    if ($delete) {
+        echo
+        "<script>
+        alert(' 🎉 Account has been deleted.');
+        window.location.href = 'javascript:history.go(-1)';
         </script>";
     }
 }

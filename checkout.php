@@ -5,7 +5,7 @@ require_once './conn.php';
 
 if (!isset($_SESSION['username'])) {
     echo "<script>
-        alert('Before Checkout. You must login.');
+        alert('Before Checkout. You must login as User.');
         window.location.href='./login.php';
         </script>";
 } else {
