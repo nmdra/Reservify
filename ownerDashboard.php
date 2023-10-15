@@ -57,7 +57,7 @@ if (!isset($_SESSION['owner_id'])) {
                     </div>
                     <div class="button">
                         <p><a class="update-btn" href="./ownerUpdate.php">Update Details</a></p>
-                        <?php echo '<p><a class="delete-btn" href="./delete.php?ownerid=' . $owner_id . '">Delete Account</a></p>'; ?>
+                        <?php echo '<p><a class="delete-btn" href="./delete.php?oownerid=' . $owner_id . '">Delete Account</a></p>'; ?>
                     </div>
                 </div>
                 <div class="pbtn">
@@ -131,7 +131,7 @@ if (!isset($_SESSION['owner_id'])) {
                                 <tr>
                                     <th>Hotel ID</th>
                                     <th>Hotel Name</th>
-                                    <th>Action</th>
+                                    <th colspan="2">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -149,6 +149,7 @@ if (!isset($_SESSION['owner_id'])) {
                                         echo '<tr>';
                                         echo '<td>' . $id . '</td>';
                                         echo '<td>' . $hotelName . '</td>';
+                                        echo '<td><a href="updateHotel.php?hotelid=' . $id . '" class="edit-btn">Update</a></td>';
                                         echo '<td><a href="delete.php?hotelid=' . $id . '" class="delete-btn">Delete</a></td>';
                                         echo '</tr>';
                                     }
@@ -175,7 +176,8 @@ if (!isset($_SESSION['owner_id'])) {
                                     <th>Package ID</th>
                                     <th>Package Name</th>
                                     <th>Hotel Name</th>
-                                    <th>Action</th>
+                                    <th colspan="2
+                                    ">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -202,6 +204,7 @@ if (!isset($_SESSION['owner_id'])) {
                                         echo '<td>' . $id . '</td>';
                                         echo '<td>' . $packageName . '</td>';
                                         echo '<td>' . $hotelName . '</td>';
+                                        echo '<td><a href="updatePackage.php?packageid=' . $id . '" class="edit-btn">Update</a></td>';
                                         echo '<td><a href="delete.php?pkgid=' . $id . '" class="delete-btn">Delete</a></td>';
                                         echo '</tr>';
                                     }
