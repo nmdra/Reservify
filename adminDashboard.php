@@ -109,6 +109,8 @@ if (!isset($_SESSION['admin_id'])) {
                             </tbody>
                         </table>
                     </div>
+  
+                    <?php echo '<a href="./register.php"><button type="button">Add New User</button></a>'; ?>
                 </div>
             </section>
             <!-- Employee management -->
@@ -141,7 +143,7 @@ if (!isset($_SESSION['admin_id'])) {
                                         echo '<td>' . $adminid . '</td>';
                                         echo '<td>' . $adminname . '</td>';
                                         echo '<td>' . $adminemail . '</td>';
-                                        echo '<td><a href="update.php?employeeid=' . $adminid . '" class="edit-btn">Edit</a></td>';
+                                        echo '<td><a href="updateEmployee.php?employeeid=' . $adminid . '" class="edit-btn">Edit</a></td>';
                                         echo '<td><a href="delete.php?employeeid=' . $adminid . '" class="delete-btn">Remove</a></td>';
                                         echo '</tr>';
                                     }
@@ -152,6 +154,8 @@ if (!isset($_SESSION['admin_id'])) {
                             </tbody>
                         </table>
                     </div>
+
+                    <?php echo '<a href="./addNewEmployee.php"><button type="button">Add New Employee</button></a>'; ?>
                 </div>
             </section>
             <!-- Hotel owner management -->
@@ -196,6 +200,8 @@ if (!isset($_SESSION['admin_id'])) {
                             </tbody>
                         </table>
                     </div>
+
+                    <?php echo '<a href="./ownerRegister.php"><button type="button">Add New Hotel Owner</button></a>'; ?>
                 </div>
             </section>
         </div>
