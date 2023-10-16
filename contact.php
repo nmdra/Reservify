@@ -47,6 +47,7 @@ mysqli_close($conn);
     <title>Reservify: Contact Us</title>
     <!-- Include CSS file -->
     <link rel="stylesheet" href="css/contact.css">
+    <script src="./js/email.js"></script>
 </head>
 
 <!-- Include header -->
@@ -68,7 +69,9 @@ mysqli_close($conn);
 
                 <div class="contactForm">
 
-    <form action="contact.php" method="POST" name="cForm" enctype="multipart/form-data">
+      <span id="validate"> </span> <br>
+
+    <form action="contact.php" method="POST" name="cForm" enctype="multipart/form-data" onsubmit="return validateForm()">
 
                         <lable for="name"><b>Name</b></lable>
                         <input class="inputbox" type="text" name="name" placeholder="Enter Name" required>
