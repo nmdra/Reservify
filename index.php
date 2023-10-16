@@ -19,9 +19,8 @@ session_start();
     <div class="banner">
         <div class="overlay">
             <div class="content">
-                <h2>WELCOME</h1>
-                <h3>TO</h3>
-                <h1>RESEVIFY</h2>
+                <h2>WELCOME</h2>
+                <h1>RESEVIFY</h1>
                 <p>"Discover comfort and convenience with every reservation."</p>
             </div>
             <div>
@@ -30,7 +29,7 @@ session_start();
         </div>
     </div>
 
-    <div class="Partnership">
+    <!--  <div class="Partnership">
         <div class="circle">
             <div class="name">
                 <h3>Araliya Hotel</h3>
@@ -45,7 +44,7 @@ session_start();
                 <h3>Galadari</h3>
             </div>
         </div>
-    </div>
+    </div>  -->
 
     <div class="HotelOwners">
 

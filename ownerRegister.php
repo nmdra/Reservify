@@ -26,8 +26,6 @@ if (isset($_POST['submit'])) {
     // Insert user data into the database
     $insert = mysqli_query($conn, "INSERT INTO `hotel_owner` (`name`, `username`, `email`, `password`) VALUES ('$name', '$username', '$email', '$hashpsw')");
 
-    echo $insert;
-
     if ($insert) {
       // Registration successful
       $message[] = 'Registration successful. Click here to <a href="./login.php">Log in.</a>';

@@ -23,7 +23,7 @@ if (!isset($_SESSION['owner_id'])) {
 
         // Check if the image is uploaded successfully
         if (move_uploaded_file($_FILES['image']['tmp_name'], 'assets/hotel/' . $imgname)) {
-            $update = "UPDATE `hotel` SET `hotel_name` = '$hotel_name', `description` = '$description', `image` = '$imgname' WHERE `hotel_id` = '$hotel_id'";
+            $update = "UPDATE `hotel` SET `hotel_name` = '$hotel_name', `description` = '$description', `image` = '$imgname' WHERE `hotel_id` = '$hotel_id';";
             $result = mysqli_query($conn, $update);
 
             if ($result) {
