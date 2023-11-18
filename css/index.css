@@ -133,10 +133,15 @@ body {
   width: 120px;
   height: 40px;
   outline: none;
-  color: rgb(255, 255, 255);
+  color: #fff;
   background: #111;
   cursor: pointer;
   position: relative;
   border-radius: 10px;
   user-select: none;
+}
+
+.HotelOwners button:hover {
+  transform: scale(1.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
