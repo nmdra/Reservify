@@ -3,6 +3,24 @@
 [![License](https://img.shields.io/badge/License-GPL-blue.svg)](LICENSE)
 [![GitHub Issues](https://img.shields.io/github/issues/nmdra/Reservify.svg)](https://github.com/nmdra/Reservify/issues)
 
+## Preview
+
+### Home Page
+
+![Home Page](./.media/HomePage.jpg)
+
+### Login Page
+
+![Login Page](./.media/LoginPage.jpg)
+
+### Package Page
+
+![Package Page](./.media/PackagesPage.jpg)
+
+### Hotel Page
+
+![Hotel Page](./.media/HotelPage.jpg)
+
 ## Group Details
 
 - **Institution:** Sri Lanka Institute of Information Technology - 2023

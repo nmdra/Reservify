@@ -20,7 +20,7 @@ session_start();
         <div class="overlay">
             <div class="content">
                 <h2>WELCOME</h2>
-                <h1>RESEVIFY</h1>
+                <h1>RESERVIFY</h1>
                 <p>"Discover comfort and convenience with every reservation."</p>
             </div>
             <div>
@@ -29,29 +29,12 @@ session_start();
         </div>
     </div>
 
-    <!--  <div class="Partnership">
-        <div class="circle">
-            <div class="name">
-                <h3>Araliya Hotel</h3>
-            </div>
-            <div class="name">
-                <h3>Taj Samudra</h3>
-            </div>
-            <div class="name">
-                <h3>Hilton</h3>
-            </div>
-            <div class="name">
-                <h3>Galadari</h3>
-            </div>
-        </div>
-    </div>  -->
-
     <div class="HotelOwners">
 
         <h2>Hotel Owners, Get Started Now!</h2>
         <h3>Join Our Network of Hotels and Boost Your Bookings</h3>
         <div>
-            <button type="button"><span></span> Register</button>
+            <button onclick="location.href='./ownerRegister.php'" type="button"><span></span> Register</button>
         </div>
     </div>
 
