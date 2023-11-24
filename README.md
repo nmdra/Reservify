@@ -15,7 +15,7 @@
 
 ### Package Page
 
-![Package Page](./.media/PackagePage.jpg)
+![Package Page](./.media/PackagesPage.jpg)
 
 ### Hotel Page
 
