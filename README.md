@@ -7,23 +7,19 @@
 
 ### Home Page
 
-![Home Page](./media/HomePage.jpeg)
-Caption for the Home Page screenshot.
+![Home Page](./.media/HomePage.jpeg)
 
 ### Login Page
 
-![Login Page](./media/LoginPage.jpeg)
-Caption for the Login Page screenshot.
+![Login Page](./.media/LoginPage.jpeg)
 
 ### Package Page
 
-![Package Page](./media/PackagePage.jpeg)
-Caption for the Package Page screenshot.
+![Package Page](./.media/PackagePage.jpeg)
 
 ### Hotel Page
 
-![Hotel Page](./media/HotelPage.jpeg)
-Caption for the Hotel Page screenshot.
+![Hotel Page](./.media/HotelPage.jpeg)
 
 ## Group Details
 
