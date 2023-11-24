@@ -7,19 +7,19 @@
 
 ### Home Page
 
-![Home Page](./.media/HomePage.jpeg)
+![Home Page](./.media/HomePage.jpg)
 
 ### Login Page
 
-![Login Page](./.media/LoginPage.jpeg)
+![Login Page](./.media/LoginPage.jpg)
 
 ### Package Page
 
-![Package Page](./.media/PackagePage.jpeg)
+![Package Page](./.media/PackagePage.jpg)
 
 ### Hotel Page
 
-![Hotel Page](./.media/HotelPage.jpeg)
+![Hotel Page](./.media/HotelPage.jpg)
 
 ## Group Details
 
