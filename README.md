@@ -3,6 +3,28 @@
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![GitHub Issues](https://img.shields.io/github/issues/nmdra/Reservify.svg)](https://github.com/nmdra/Reservify/issues)
 
+## Preview
+
+### Home Page
+
+![Home Page](./media/HomePage.jpeg)
+Caption for the Home Page screenshot.
+
+### Login Page
+
+![Login Page](./media/LoginPage.jpeg)
+Caption for the Login Page screenshot.
+
+### Package Page
+
+![Package Page](./media/PackagePage.jpeg)
+Caption for the Package Page screenshot.
+
+### Hotel Page
+
+![Hotel Page](./media/HotelPage.jpeg)
+Caption for the Hotel Page screenshot.
+
 ## Group Details
 
 - **Institution:** Sri Lanka Institute of Information Technology - 2023
